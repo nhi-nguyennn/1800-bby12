@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Nhi Nguyen, Ming Li, Dalibor Cavlovic">
 
     <title>Skedule</title>
 
@@ -13,7 +14,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Optional styles and scripts of your own -->
-    <link rel="stylesheet" href="styles/my_style.css">
+    <link rel="stylesheet" href="./styles/my_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -23,6 +24,7 @@
 </head>
 
 <body>
+
     <!-- Navbar -->
     <div class="navbar1">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -36,7 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
@@ -44,16 +46,10 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Feedback</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact Us</a>
-                        </li>
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="#" class="btn-top">Sign up</a>
-                        </li>
-                        <li class="nav-item login">
-                            <a href="#" class="btn-top">Log in</a>
+                            <a href="./pages/login.html" class="btn-top">Log in</a>
                         </li>
                     </ul>
                 </div>
@@ -66,11 +62,11 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand"><img src="./img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
-                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas"
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="offcanvasNavbar"
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="./img/logo-black.png" alt="logo"
@@ -81,19 +77,13 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link" href="./index.html">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">About Us</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Feedback</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact Us</a>
-                            </li>
-                            <li class="nav-item login">
-                                <a class="nav-link" href="#">Log out</a>
                             </li>
                         </ul>
                     </div>
@@ -108,7 +98,7 @@
             <h1>Learn at ease</h1>
             <p>Welcome to Skedule, now you can enjoy your learning life...</p>
             <br />
-            <a href="#" class="btn">Log in <i class="fas fa-chevron-right"></i></a>
+            <a href="./pages/login.html" class="btn">Log in <i class="fas fa-chevron-right"></i></a>
         </div>
     </header>
 
@@ -129,10 +119,13 @@
         </footer>
     </div>
 
+    
+
     <script src="scripts/firebaseAPI.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>
