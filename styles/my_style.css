@@ -26,13 +26,14 @@ nav a {
 }
 
 .container-fluid {
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 0;
+    margin-right: 20px;
+    align-items: center;
 }
 
 .navbar-brand {
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .btn-top {
@@ -44,6 +45,10 @@ nav a {
     background-color: #fff;
     color: #262626;
     font-size: 20px;
+}
+
+.right-menu {
+    margin-bottom: 0;
 }
 
 .btn {
@@ -63,6 +68,7 @@ nav a {
 }
 
 .login {
+    align-items: center;
     float: right;
 }
 
