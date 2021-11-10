@@ -1,13 +1,14 @@
 // Your web app's Firebase configuration
 var  firebaseConfig = {
-  apiKey: "AIzaSyAZaU-JJ3zDwj2UFtwkB8u9yIiwENsdBkk",
-  authDomain: "comp-1800-ming.firebaseapp.com",
-  projectId: "comp-1800-ming",
-  storageBucket: "comp-1800-ming.appspot.com",
-  messagingSenderId: "633646453407",
-  appId: "1:633646453407:web:a1d42bc131af469dc388aa"
+  apiKey: "AIzaSyD2LmzU67DRL-Zo4i2ncocBiw-a49ng9Rk",
+  authDomain: "bby12-ccaaa.firebaseapp.com",
+  projectId: "bby12-ccaaa",
+  storageBucket: "bby12-ccaaa.appspot.com",
+  messagingSenderId: "154456843352",
+  appId: "1:154456843352:web:fd82fc47a1e80f690b562d",
+  measurementId: "G-C21R8WJWPG"
   };
   
-
   const app = firebase.initializeApp(firebaseConfig);
-  
+  const db = firebase.firestore();
+

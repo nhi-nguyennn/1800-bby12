@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Nhi Nguyen, Ming Li, Dalibor Cavlovic">
-    
+
     <title>Login - Skedule</title>
 
     <!-- Bootstrap CSS -->
@@ -36,6 +36,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    
 
     <!-- Link to the api keys for your firebase project -->
     <script src="../scripts/firebaseAPI.js"></script>
@@ -82,8 +83,8 @@
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../img/logo-black.png" alt="logo"
-                                style="max-width: 60px">Skedule</h2>
+                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../img/logo-black.png"
+                                alt="logo" style="max-width: 60px">Skedule</h2>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
@@ -114,22 +115,23 @@
 
     <div class="container bac">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <p class="col-md-4 mb-0 text-muted">&copy; 2021 BBY12, Inc</p>
-      
-          <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <img src="../../img/logo-black.png" alt="logo" style="max-width: 60px">
-          </a>
-      
-          <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About us</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
-          </ul>
+            <p class="col-md-4 mb-0 text-muted">&copy; 2021 BBY12, Inc</p>
+
+            <a href="/"
+                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+                <img src="../../img/logo-black.png" alt="logo" style="max-width: 60px">
+            </a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About us</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
+            </ul>
         </footer>
     </div>
 
-
     <script>
+        // Initialize the FirebaseUI Widget using Firebase.
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
         var uiConfig = {
             callbacks: {
@@ -137,7 +139,23 @@
                     // User successfully signed in.
                     // Return type determines whether we continue the redirect automatically
                     // or whether we leave that to developer to handle.
-                    return true;
+                    var user = authResult.user;
+
+                    // Determin wheter the user is a new user or not
+                    if (authResult.additionalUserInfo.isNewUser) {
+                        db.collection("users").doc(user.uid).set({
+                            name: user.displayName,
+                            email: user.email,
+                        }).then(function() {
+                            window.location.assign("./main/main.html");
+                        })
+                        .catch(function(error) {
+                            console.log("error is " + error);
+                        })
+                    } else {
+                        return true;
+                    }
+                    return false;
                 },
                 uiShown: function () {
                     // The widget is rendered.
@@ -147,24 +165,24 @@
             },
             // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
             signInFlow: 'popup',
-            signInSuccessUrl: 'main.html',
+            signInSuccessUrl: '../../main.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
-                // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-                // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-                // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-                // firebase.auth.GithubAuthProvider.PROVIDER_ID,
+                //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                //firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                //firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+                //firebase.auth.GithubAuthProvider.PROVIDER_ID,
                 firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                // firebase.auth.PhoneAuthProvider.PROVIDER_ID
+                //firebase.auth.PhoneAuthProvider.PROVIDER_ID
             ],
             // Terms of service url.
             tosUrl: '<your-tos-url>',
             // Privacy policy url.
             privacyPolicyUrl: '<your-privacy-policy-url>'
         };
+
         // The start method will wait until the DOM is loaded.
         ui.start('#firebaseui-auth-container', uiConfig);
-
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
