@@ -196,20 +196,40 @@
         function saveUserInfo() {
             //console.log("Save user info");
             //grab values from the form that user inserted in each fields
+<<<<<<< HEAD
             userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
             SETID = document.getElementById('setid').value;     //get the value of the field with id="schoolInput"
             PROGRAM_INFO = document.getElementById('pro_id').value;
+=======
+            userName = document.getElementById('nameInput').value; //get the value of the field with id="nameInput"
+            userSchool = document.getElementById('schoolInput')
+            .value; //get the value of the field with id="schoolInput"
+            userCity = document.getElementById('cityInput').value;
+>>>>>>> 8f6ea8429f84291d1a2819dd2d9fdca7205914cf
 
-            //console.log("values are: ", name, school, city);
+
 
             //write the value in the database:
             currentUser.update({
                 name: userName,
+<<<<<<< HEAD
                 SET: SETID,
                 PROGRAM: PROGRAM_INFO
+=======
+                school: userSchool,
+                city: userCity
+
+>>>>>>> 8f6ea8429f84291d1a2819dd2d9fdca7205914cf
             })
+
+            console.log("values are: ", name, school, city);
+
             document.getElementById('personalInfoFields').disabled = true;
+<<<<<<< HEAD
             document.getElementById("Save").innerHTML="Save Succesfully.";
+=======
+
+>>>>>>> 8f6ea8429f84291d1a2819dd2d9fdca7205914cf
         }
     </script>
 </body>
