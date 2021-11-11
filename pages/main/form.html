@@ -223,12 +223,16 @@
                         .then(userDoc => {
                             //get user Email
                             var userEmail = userDoc.data().email;
+                            var username = userDoc.data().name;
                             // Start a new collection and add all data in it.
                             db.collection("Assignment").add({
+                                username:username,
+                                useremail:userEmail,
                                 Assignment_Name: Assignment_name1,
                                 Program_id: Program_id1,
                                 Assignment_type: Assign_type1,
                                 Due_date: Duedate1
+                                
                             });
                             document.getElementById("submit").innerHTML="Submit Succesfully.";
                         })
