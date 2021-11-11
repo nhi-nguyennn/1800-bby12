@@ -21,7 +21,7 @@
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
 
     <!-- Link to the api keys for your firebase project -->
-    <script src="/scripts/firebaseAPI_TEAM99.js"></script>
+    <script src="../../scripts/firebaseAPI.js"></script>
 
 </head>
 
@@ -122,21 +122,28 @@
                     <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
                 </div>
                 <div class="form-group">
-                    <label>School</label>
-                    <input type="text" id="schoolInput" class="form-control" placeholder="Enter your school">
+                    <label>SET_ID</label>
+                    <input type="text" id="setid" class="form-control" placeholder="Enter your SET ID">
                 </div>
                 <div class="form-group">
-                    <label>City</label>
-                    <input type="text" id="cityInput" class="form-control" placeholder="Enter your city">
+                    <label>PROGRAM_INFO</label>
+                    <input type="text" id="pro_id" class="form-control" placeholder="PROGRAM INFO">
                 </div>
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
+                <a href="../main/main.html"><button type="button" class="btn btn-secondary" >Back</button></a>
+                <span style="width: 10px"></span>
                 <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                 <span style="width: 10px"></span>
                 <button type="button" class="btn btn-info" onclick="saveUserInfo()">Save</button>
             </div>
         </form>
     </div>
+    <br/>
+    <br/>
+    <br/>
+
+    <h3 id="Save"></h3>
 
     <!--------------------------------------------------------------------->
     <!-- JS files: Your own JavaScript functions included here    -->
@@ -157,18 +164,18 @@
                         .then(userDoc => {
                             //get the data fields of the user
                             var userName = userDoc.data().name;
-                            var userSchool = userDoc.data().school;
-                            var userCity = userDoc.data().city;
+                            var SETID = userDoc.data().SET_ID;
+                            var PROGRAM_INFO = userDoc.data().PROGRAM_INFO;
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
                                 document.getElementById("nameInput").value = userName;
                             }
-                            if (userSchool != null) {
-                                document.getElementById("schoolInput").value = userSchool;
+                            if (SETID != null) {
+                                document.getElementById("set_id").value = SETID;
                             }
-                            if (userCity != null) {
-                                document.getElementById("cityInput").value = userCity;
+                            if (PROGRAM_INFO != null) {
+                                document.getElementById("pro_id").value = PROGRAM_INFO;
                             }
                         })
                 } else {
@@ -190,18 +197,19 @@
             //console.log("Save user info");
             //grab values from the form that user inserted in each fields
             userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-            userSchool = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
-            userCity = document.getElementById('cityInput').value;
+            SETID = document.getElementById('setid').value;     //get the value of the field with id="schoolInput"
+            PROGRAM_INFO = document.getElementById('pro_id').value;
 
             //console.log("values are: ", name, school, city);
 
             //write the value in the database:
             currentUser.update({
                 name: userName,
-                school: userSchool,
-                city: userCity
+                SET: SETID,
+                PROGRAM: PROGRAM_INFO
             })
             document.getElementById('personalInfoFields').disabled = true;
+            document.getElementById("Save").innerHTML="Save Succesfully.";
         }
     </script>
 </body>
