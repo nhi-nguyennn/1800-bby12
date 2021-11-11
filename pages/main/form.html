@@ -177,6 +177,7 @@
     <br />
     <br />
     <br />
+    <h3 id="submit"></h3>
     <br />
     <br />
     <br />
@@ -229,10 +230,12 @@
                                 Assignment_type: Assign_type1,
                                 Due_date: Duedate1
                             });
+                            document.getElementById("submit").innerHTML="Submit Succesfully.";
                         })
                 } else {
                     // No user is signed in.
                     console.log("no user signed in");
+                    
                 }
             });
             console.log("write success");
