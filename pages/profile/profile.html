@@ -189,19 +189,25 @@
         function saveUserInfo() {
             //console.log("Save user info");
             //grab values from the form that user inserted in each fields
-            userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-            userSchool = document.getElementById('schoolInput').value;     //get the value of the field with id="schoolInput"
+            userName = document.getElementById('nameInput').value; //get the value of the field with id="nameInput"
+            userSchool = document.getElementById('schoolInput')
+            .value; //get the value of the field with id="schoolInput"
             userCity = document.getElementById('cityInput').value;
 
-            //console.log("values are: ", name, school, city);
+
 
             //write the value in the database:
             currentUser.update({
                 name: userName,
                 school: userSchool,
                 city: userCity
+
             })
+
+            console.log("values are: ", name, school, city);
+
             document.getElementById('personalInfoFields').disabled = true;
+
         }
     </script>
 </body>

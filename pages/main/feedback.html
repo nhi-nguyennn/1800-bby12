@@ -1,96 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>My BCIT Project</title>
-    <meta name="comp1800 template" content="my bcit Hiking App project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Nhi Nguyen, Ming Li, Dalibor Cavlovic">
+
+    <title>Skedule</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Optional styles and scripts of your own -->
-    <link type="text/css" href="styles/my_style.css">
-    <style>
-    h3 {text-align: center;}
-        #title2 {color: blue;}
-        #img {  display:block;
-                text-align: center;}
-        #btn1 { position: relative;
-                margin-top: 5vh;
-                display:block;
-                text-align: center;
-                      
-        }
-        #btn2 {background-color:rgb(0, 255, 128);
-                border:1px;
-                color:rgb(75, 9, 230);
-                padding: 5px 15px;
-                text-align: center;
-                border-radius: 2vh;
-                display: inline-block;
-                margin: 4px 2px;
+    <link rel="stylesheet" href="../../styles/my_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-            }
-
-        #menu { position: relative;
-                top: 5vh;
-                display:grid;
-                grid-template-columns: auto,auto,auto,auto;
-                 grid-template-rows: auto;
-                height:10vh;
-                width:60 vw;
-                grid-gap:6vw;
-                justify-content: center;
-               
-
-            }
-
-        #item1 { grid-column: 1/2;
-                grid-template-rows: 1/2;
-                          }
-        #item2 {grid-column: 2/3;
-                grid-template-rows: 1/2;}
-        #item3 {grid-column: 3/4;
-                grid-template-rows: 1/2;}
-        #item4 {grid-column: 4/5;
-                grid-template-rows: 1/2;}
-</style>
-
+    <link href="../../img/logo-black.png" rel="icon" type="image/png" />
 
 </head>
 
-<header>
-    <h3  id="title1">Student's Kit</h3>
-
-</header>
 <body>
-<h3  id="title2"><b>Welcome to student kit, now you can enjoy your learning life...</b></h3>
 
+    <!-- Navbar -->
+    <div class="navbar1">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Feedback</a>
+                        </li>
+                    </ul>
+                    <ul class="right-menu">
+                        <li class="nav-item login">
+                            <a href="../../pages/login.html" class="btn-top">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
 
-<div id="img">
-<img src="student.jpg" />
-</div>
-<div id="btn1">
-    <form action="/action_page.php">
-        <textarea name="message" rows="8" cols="58">   </textarea>
-    <br><br>
-        <input type="submit">
-      </form>
-</div>
-<div  id="menu">
-    <div id="item1">
-        <button><a href="index-1.html"><h3>Home</h3></a></button>
-    </div>
-    <div id="item2"> 
-       <button> <a href="about.html"><h3>About</h3></a></button>
-    </div>
-    <div id="item3">
-        <button><a href="FEEDBACK.html"> <h3>Feedback</h3> </a></button>
-    </div>
-    <div id="item4">
-        <button><a href="CONTACT.html"><h3>Contact</h3></a></button>
+    <!-- Navbar2 - Offcanvas -->
+    <div class="navbar2">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../../img/logo-black.png" alt="logo"
+                                style="max-width: 60px">Skedule</h2>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                            <li class="nav-item">
+                                <a class="nav-link" href="../../index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Feedback</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </div>
 
-</div>
-<script src="scripts/firebaseAPI.js"></script>
+    <!-- Showcase -->
+    <header class="showcase">
+        <div class="content">
+            
+        </div>
+    </header>
+
+    <!-- Footer -->
+    <div class="container bac">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <p class="col-md-4 mb-0 text-muted">&copy; 2021 BBY12, Inc</p>
+      
+          <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <img src="../../img/logo-black.png" alt="logo" style="max-width: 60px">
+          </a>
+      
+          <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="main.html" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link px-2 text-muted">About us</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
+          </ul>
+        </footer>
+    </div>
+
+    
+
+    <script src="scripts/firebaseAPI.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
