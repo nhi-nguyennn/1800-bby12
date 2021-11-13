@@ -133,6 +133,13 @@ thead {
     text-align: center;
 }
 
+.container{
+    padding-top: 50px;
+}
+
+.bac {
+    text-align: center;
+}
 @media(max-width: 1000px) {
     .navbar1 {
         display: none;
