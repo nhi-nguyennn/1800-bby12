@@ -38,7 +38,8 @@
     <div class="navbar1">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
+                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo"
+                        style="max-width: 60px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -47,18 +48,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
+                            <a class="nav-link" href="../main/main.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">About Us</a>
+                            <a class="nav-link" href="./courses.html">Courses</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Feedback</a>
+                            <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./calendar.html">Calendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../profile/profile.html" class="nav-link">Profile</a>
                         </li>
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="./pages/login.html" class="btn-top">Log in</a>
+                            <a href="../../index.html" class="btn-top">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -70,8 +77,8 @@
     <div class="navbar2">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
-                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas"
+                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -84,31 +91,31 @@
                             aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link" href="../main/main.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Courses</a>
+                                <a class="nav-link" href="./courses.html">Courses</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Assignments</a>
+                                <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Calendar</a>
+                                <a class="nav-link" href="./calendar.html">Calendar</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Profile</a>
+                                <a href="../profile/profile.html" class="nav-link">Profile</a>
                             </li>
                             <hr />
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About Us</a>
+                                <a class="nav-link" href="./about.html">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Feedback</a>
+                                <a class="nav-link" href="./feedback.html">Feedback</a>
                             </li>
                             <li class="nav-item login">
-                                <a class="nav-link" href="#">Log out</a>
+                                <a class="nav-link" href="../../index.html">Log out</a>
                             </li>
                         </ul>
                     </div>
@@ -135,7 +142,7 @@
                 </div>
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
-                <a href="../main/main.html"><button type="button" class="btn btn-secondary" >Back</button></a>
+                <a href="../main/main.html"><button type="button" class="btn btn-secondary">Back</button></a>
                 <span style="width: 10px"></span>
                 <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                 <span style="width: 10px"></span>
@@ -144,11 +151,9 @@
         </form>
     </div>
 
-    <h3 id="Save"></h3>
-
     <div class="container bac">
         <footer>
-            <hr/>
+            <hr />
             <img src="../../img/logo-black.png" alt="logo" style="max-width: 60px">
             <p class="text-muted">&copy; 2021 BBY12, Inc</p>
         </footer>
@@ -158,6 +163,9 @@
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
     <!-- <script src="./scripts/my_script.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
     <script>
         var currentUser;
 
@@ -218,10 +226,10 @@
                 PROGRAM: PROGRAM_INFO
             })
 
-        
+
 
             document.getElementById('personalInfoFields').disabled = true;
-            document.getElementById("Save").innerHTML="Save Succesfully.";
+            document.getElementById("Save").innerHTML = "Save Succesfully.";
         }
     </script>
 </body>
