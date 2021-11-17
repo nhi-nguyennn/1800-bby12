@@ -50,7 +50,8 @@
     <div class="navbar1">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
+                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo"
+                        style="max-width: 60px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -59,24 +60,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="../main/main.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Courses</a>
+                            <a class="nav-link" href="../main/courses.html">Courses</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Assignments</a>
+                            <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Calendar</a>
+                            <a class="nav-link" href="./calendar.html">Calendar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../profile/profile.html">Profile</a>
+                            <a href="../profile/profile.html" class="nav-link">Profile</a>
                         </li>
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="#" class="btn-top">Log out</a>
+                            <a href="../../index.html" class="btn-top">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -88,8 +89,9 @@
     <div class="navbar2">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
-                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas"
+                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo"
+                        style="max-width: 60px"></a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -102,31 +104,31 @@
                             aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link" href="../main/main.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Courses</a>
+                                <a class="nav-link" href="../main/courses.html">Courses</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Assignments</a>
+                                <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Calendar</a>
+                                <a class="nav-link" href="./calendar.html">Calendar</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Profile</a>
+                                <a href="../profile/profile.html" class="nav-link">Profile</a>
                             </li>
                             <hr />
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About Us</a>
+                                <a class="nav-link" href="./about.html">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Feedback</a>
+                                <a class="nav-link" href="./feedback.html">Feedback</a>
                             </li>
                             <li class="nav-item login">
-                                <a class="nav-link" href="#">Log out</a>
+                                <a class="nav-link" href="../../index.html">Log out</a>
                             </li>
                         </ul>
                     </div>
@@ -143,8 +145,8 @@
 
                 <form>
                     <div class="form-group">
-                        <label for="Assignment_name">Assignment Name:</label>
-                        <input type="text" class="form-control" id="Assignment_name">
+                        <label for="assignment_name">Assignment Name:</label>
+                        <input type="text" class="form-control" id="assignment_name">
                     </div><br>
                     <div class="form-group">
                         <label for="program_id">Course: </label>
@@ -160,17 +162,19 @@
 
                     </div><br>
                     <div class="form-group">
-                        <label for="Assign_type">Assignment type:</label>
-                        <select class="form-control" id="Assign_type">
+                        <label for="assignment_type">Assignment type:</label>
+                        <select class="form-control" id="assignment_type">
                             <option>Assignment</option>
+                            <option>Lab</option>
                             <option>Quiz</option>
                             <option>Midterm</option>
                             <option>Final</option>
                         </select>
                     </div><br>
                     <div class="form-group">
-                        <label for="Duedate">Due date(YYYY/MM/DD):</label>
-                        <input type="date" class="form-control" id="Duedate" name="trip-start" value="2021-01-11" min="2015-01-01" max="2030-12-31">
+                        <label for="due_date">Due date(YYYY/MM/DD):</label>
+                        <input type="date" class="form-control" id="due_date" name="trip-start" value="2021-01-11"
+                            min="2015-01-01" max="2030-12-31">
                     </div><br>
 
                     <div class="d-flex justify-content-end">
@@ -178,7 +182,7 @@
                             class="btn btn-lg btn-primary pull-right">Back</button>
                         <span style="width: 10px"></span>
                         <button type="button" class="btn btn-lg btn-primary pull-right"
-                            onclick="writeReview()">Submit</button>
+                            onclick="addAssignment()">Submit</button>
                     </div>
                 </form>
             </div>
@@ -187,19 +191,10 @@
     </header>
 
     <div class="container bac">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <p class="col-md-4 mb-0 text-muted">&copy; 2021 BBY12, Inc</p>
-
-            <a href="/"
-                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <img src="../../img/logo-black.png" alt="logo" style="max-width: 50px">
-            </a>
-
-            <ul class="nav col-md-4 justify-content-end">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About us</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
-            </ul>
+        <footer>
+            <hr />
+            <img src="../../img/logo-black.png" alt="logo" style="max-width: 60px">
+            <p class="text-muted">&copy; 2021 BBY12, Inc</p>
         </footer>
     </div>
 
@@ -209,11 +204,11 @@
         </script>
 
     <script>
-        function writeReview() {
-            let Assignment_name1 = document.getElementById("Assignment_name").value;
-            let Program_id1 = document.getElementById("program_id").value;
-            let Assign_type1 = document.getElementById("Assign_type").value;
-            let Duedate1 = document.getElementById("Duedate").value;
+        function addAssignment() {
+            let Name = document.getElementById("assignment_name").value;
+            let Program = document.getElementById("program_id").value;
+            let Type = document.getElementById("assignment_type").value;
+            let date = document.getElementById("due_date").value;
 
             firebase.auth().onAuthStateChanged(user => {
                 if (user) {
@@ -226,16 +221,16 @@
                             var userEmail = userDoc.data().email;
                             var username = userDoc.data().name;
                             // Start a new collection and add all data in it.
-                            db.collection("Assignment").add({
+                            db.collection("Assignments").add({
                                 username: username,
+                                UserID: userID,
                                 useremail: userEmail,
-                                Assignment_Name: Assignment_name1,
-                                Program_id: Program_id1,
-                                Assignment_type: Assign_type1,
-                                Due_date: Duedate1
+                                Name: Name,
+                                Program: Program,
+                                Type: Type,
+                                Due_date: date,
 
                             });
-                            document.getElementById("submit").innerHTML = "Submit Succesfully.";
                         })
                 } else {
                     // No user is signed in.
