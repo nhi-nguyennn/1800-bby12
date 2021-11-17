@@ -19,6 +19,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="../../img/logo-black.png" rel="icon" type="image/png" />
+
+    <!-- Link to the api keys for your firebase project -->
+    <script src="../../scripts/firebaseAPI.js"></script>
 </head>
 
 <body>
@@ -102,49 +105,28 @@
         </nav>
     </div>
 
-    <h1 class="title">Upcoming Assignments</h1>
+    <!-- Templates for general use, not displayed -->
+    <template id="CardTemplate">
+        <div class="card py-2 mx-2" style="width: 18rem;">
+            <img class="card-image card-img-top" alt="Course image">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                <a class="card-href btn btn-primary" href="#">Get Details</a>
+            </div>
+        </div>
+    </template>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Course Number</th>
-                <th scope="col">Type of assignment</th>
-                <th scope="col">Due Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>COMM-1116</td>
-                <td>Lab exercise</td>
-                <td>November 11th, 2021</td>
-            </tr>
-            <tr>
-                <td>COMM-1113</td>
-                <td>Quiz</td>
-                <td>November 12th, 2021</td>
-            </tr>
-            <tr>
-                <td>COMM-1510</td>
-                <td>Quiz</td>
-                <td>November 12th, 2021</td>
-            </tr>
-            <tr>
-                <td>COMM-1100</td>
-                <td>Journal</td>
-                <td>November 15th, 2021</td>
-            </tr>
-            <tr>
-                <td>COMM-1537</td>
-                <td>Lab exercise</td>
-                <td>November 16th, 2021</td>
-            </tr>
-            <tr>
-                <td>COMM-1712</td>
-                <td>Quiz</td>
-                <td>November 16th, 2021</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="container">
+        <h1 class="title">Upcoming Assignments</h1>
+        <!-- Here is container for cards  -->
+        <div class="container">
+            <div id="setC-go-here" class="row row-cols-auto">
+            </div>
+        </div>
+    </div>
+
     <div class="addmore">
         <a href="#" class="btn"><i class="fas fa-plus"></i> Add new assignment</a>
     </div>
@@ -167,6 +149,52 @@
         </footer>
     </div>
 
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Your own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
+    <script>
+        //------------------------------------------------------------------
+        // Read from firestore to get a collection of hikes (of variable length)
+        // Then for each hike in the list,
+        // create a new "card" from the "template"
+        // update thet title and text, and other ID's 
+        // attach it to the gallery div
+        //-------------------------------------------------------------------
+        function displayCards(collection) {
+            let CardTemplate = document.getElementById("CardTemplate");
+
+            db.collection(collection).get()
+                .then(snap => {
+                    var i = 1;
+                    snap.forEach(doc => {    //iterate thru each doc
+                        var title = doc.data().name;
+                        var instructor = doc.data().Instructor;
+                        var room = doc.data().Location;
+                        var course_id = doc.data().courseID;
+                        let newcard = CardTemplate.content.cloneNode(true);
+
+                        //update title and text and image
+                        newcard.querySelector('.card-title').innerHTML = title;
+                        newcard.querySelector('.card-text').innerHTML = instructor;
+                        //newcard.querySelector('.card-text').innerHTML = room;
+                        //newcard.querySelector('.card-text').innerHTML = course_id;
+
+                        newcard.querySelector('.card-image').src = "../../img/course" + i + ".jpg";  //hikes.jpg
+
+                        newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc.id;    //firestore doc ID
+
+                        //give unique ids to all elements for future use
+                        newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                        newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                        newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+                        //attach to gallery "hikes-go-here" "heros-go-here" "countries-go-here"
+                        document.getElementById(collection + "-go-here").appendChild(newcard);
+                    })
+                })
+        }
+        displayCards("setC");
+    </script>
 </body>
 
 </html>
