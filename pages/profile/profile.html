@@ -214,6 +214,7 @@
                             var userSet = userDoc.data().set;
                             var userCampus = userDoc.data().campus;
 
+                            document.getElementById("pro_id").value = "CST";
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
@@ -221,9 +222,6 @@
                             }
                             if (userSet != null) {
                                 document.getElementById("set_id").value = userSet;
-                            }
-                            if (userProgram != null) {
-                                document.getElementById("pro_id").value = userProgram;
                             }
                             if (userTerm != null) {
                                 document.getElementById("term_id").value = userTerm;
