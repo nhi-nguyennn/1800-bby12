@@ -115,27 +115,27 @@
     </div>
 
     <h1 class="title">Upcoming Assignments</h1>
-    <form >
-    <div class="form-group" style="display:inline-table;">
-        <label for="DUEDATE" style="font-size: 20px;"><b>Weeks shown: </b></label>
-        <select class="form-control" id="DUEDATE" style="width:7vw;">
-            <option></option>
-            <option>1_week</option>
-            <option>2_weeks</option>
-            <option>3_weeks</option>
-            <option>4_weeks</option>
-           
-        </select>
-        
-    </div>
-    
-    <span style="position: relative;top: 27px;"> <button type="button" class="btn btn-lg btn-primary pull-right"
-        onclick="writeReview()">Select</button></span>
+    <form>
+        <div class="form-group" style="display:inline-table;">
+            <label for="DUEDATE" style="font-size: 20px;"><b>Weeks shown: </b></label>
+            <select class="form-control" id="DUEDATE" style="width:7vw;">
+                <option></option>
+                <option>1_week</option>
+                <option>2_weeks</option>
+                <option>3_weeks</option>
+                <option>4_weeks</option>
 
-    
-</form>
+            </select>
+
+        </div>
+
+        <span style="position: relative;top: 27px;"> <button type="button" class="btn btn-lg btn-primary pull-right"
+                onclick="writeReview()">Select</button></span>
+
+
+    </form>
     <br>
-   
+
     <div class="container">
 
         <!-- Here is container for cards  -->
@@ -178,14 +178,12 @@
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
             </ul>
         </footer>
-
+    </div>
 
         <script>
-          
-            
             function displayCards(collection) {
 
-                
+
                 const Length = localStorage.getItem("Para");
                 let CardTemplate = document.getElementById("CardTemplate");
                 console.log(Length)
@@ -194,7 +192,7 @@
                 var currentmonth = currenttime.getMonth() + 1;
                 console.log(currentdate);
                 console.log(currentmonth);
-             
+
 
                 console.log(Length);
                 db.collection(collection).get()
@@ -216,13 +214,15 @@
 
 
                             if (((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length)) || (
-                                    currentmonth - Duemonth == 1) && ((30 - Duedate + currentdate) <=
+                                    currentmonth - Duemonth == -1) && ((30 - currentdate+DUEDATE  ) <=
                                     Length)) {
                                 //update title and text and image
-                                newcard.querySelector('.card-title').innerHTML ="Assignment Name: " + ASSIGNNAME;
-                                newcard.querySelector('.card-text1').innerHTML = "Assignment Type: "+ASSIGNTYPE;
-                                newcard.querySelector('.card-text2').innerHTML = "Course Number: "+PROID;
-                                newcard.querySelector('.card-text3').innerHTML = "Due date: "+str1;
+                                newcard.querySelector('.card-title').innerHTML = "Assignment Name: " +
+                                    ASSIGNNAME;
+                                newcard.querySelector('.card-text1').innerHTML = "Assignment Type: " +
+                                    ASSIGNTYPE;
+                                newcard.querySelector('.card-text2').innerHTML = "Course Number: " + PROID;
+                                newcard.querySelector('.card-text3').innerHTML = "Due date: " + str1;
                                 //     newcard.querySelector('.card-image').src = "buntzenlake" + collection + ".jpg";
 
 
@@ -231,69 +231,31 @@
                         })
                     })
             }
-           
-            
+
+
             displayCards("Assignments");
 
             function writeReview() {
-            
-            let dueday = document.getElementById("DUEDATE").value;
-                var length1=7;
-             if(dueday=="2_weeks"){length1=14;}
-             if(dueday=="3_weeks"){length1=21;}
-             if(dueday=="4_weeks"){length1=28;}
-             localStorage.setItem("Para", length1);
-                console.log("length1:"+length1)
+
+                let dueday = document.getElementById("DUEDATE").value;
+                var length1 = 7;
+                if (dueday == "2_weeks") {
+                    length1 = 14;
+                }
+                if (dueday == "3_weeks") {
+                    length1 = 21;
+                }
+                if (dueday == "4_weeks") {
+                    length1 = 28;
+                }
+                localStorage.setItem("Para", length1);
+                console.log("length1:" + length1)
             }
         </script>
-    </div>
+    
 
-    <!--------------------------------------------------------------------->
-    <!-- JS files: Your own JavaScript functions included here    -->
-    <!--------------------------------------------------------------------->
-    <script>
-        //------------------------------------------------------------------
-        // Read from firestore to get a collection of hikes (of variable length)
-        // Then for each hike in the list,
-        // create a new "card" from the "template"
-        // update thet title and text, and other ID's 
-        // attach it to the gallery div
-        //-------------------------------------------------------------------
-        function displayCards(collection) {
-            let CardTemplate = document.getElementById("CardTemplate");
 
-            db.collection(collection).get()
-                .then(snap => {
-                    var i = 1;
-                    snap.forEach(doc => {    //iterate thru each doc
-                        var title = doc.data().name;
-                        var instructor = doc.data().Instructor;
-                        var room = doc.data().Location;
-                        var course_id = doc.data().courseID;
-                        let newcard = CardTemplate.content.cloneNode(true);
 
-                        //update title and text and image
-                        newcard.querySelector('.card-title').innerHTML = title;
-                        newcard.querySelector('.card-text').innerHTML = instructor;
-                        //newcard.querySelector('.card-text').innerHTML = room;
-                        //newcard.querySelector('.card-text').innerHTML = course_id;
-
-                        newcard.querySelector('.card-image').src = "../../img/course" + i + ".jpg";  //hikes.jpg
-
-                        newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc.id;    //firestore doc ID
-
-                        //give unique ids to all elements for future use
-                        newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
-                        newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
-                        newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
-
-                        //attach to gallery "hikes-go-here" "heros-go-here" "countries-go-here"
-                        document.getElementById(collection + "-go-here").appendChild(newcard);
-                    })
-                })
-        }
-        displayCards("setC");
-    </script>
 </body>
 
 </html>
