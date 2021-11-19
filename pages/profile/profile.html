@@ -54,17 +54,7 @@
                             <a class="nav-link" href="../main/courses.html">Courses</a>
                         </li>
                         <li class="nav-item">
-<<<<<<< HEAD
                             <a class="nav-link" href="../main/feedback.html">Feedback</a>
-=======
-                            <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./calendar.html">Calendar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../profile/profile.html" class="nav-link">Profile</a>
->>>>>>> 080d43bc1f991aaf54663a3bb8b10c9fc004a228
                         </li>
                     </ul>
                     <ul class="right-menu">
@@ -77,61 +67,6 @@
         </nav>
     </div>
 
-<<<<<<< HEAD
-
-=======
-    <!-- Navbar2 - Offcanvas -->
-    <div class="navbar2">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo"
-                        style="max-width: 60px"></a>
-                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../../img/logo-black.png"
-                                alt="logo" style="max-width: 60px">Skedule</h2>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../main/main.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../main/courses.html">Courses</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./calendar.html">Calendar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../profile/profile.html" class="nav-link">Profile</a>
-                            </li>
-                            <hr />
-                            <li class="nav-item">
-                                <a class="nav-link" href="./about.html">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./feedback.html">Feedback</a>
-                            </li>
-                            <li class="nav-item login">
-                                <a class="nav-link" href="../../index.html">Log out</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
->>>>>>> 080d43bc1f991aaf54663a3bb8b10c9fc004a228
 
     <div class="container">
         <h1>User Profile </h1>
@@ -176,7 +111,6 @@
                         <option>Downtown</option>
                     </select>
                 </div>
-<<<<<<< HEAD
                 <div class="form-group">
                     <label>Due_Date_Length</label>
                     <input type="number" id="due_length" class="form-control" placeholder="Due_date_length(number)">
@@ -184,11 +118,6 @@
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
                 <a href="../main/main.html"><button type="button" class="btn btn-secondary">Back</button></a>
-=======
-
-            </fieldset>
-            <div class="d-flex justify-content-end mt-5">
->>>>>>> 080d43bc1f991aaf54663a3bb8b10c9fc004a228
                 <span style="width: 10px"></span>
                 <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                 <span style="width: 10px"></span>
@@ -227,33 +156,16 @@
                         .then(userDoc => {
                             //get the data fields of the user
                             var userName = userDoc.data().name;
-<<<<<<< HEAD
                             var SETID = userDoc.data().SET;
                             var PROGRAM_INFO = userDoc.data().PROGRAM;
                             var Prefered_duedate_Length =userDoc.data().Duedate_length;
-=======
-                            var userProgram = userDoc.data().program;
-                            var userTerm = userDoc.data().term;
-                            var userSet = userDoc.data().set;
-                            var userCampus = userDoc.data().campus;
-
-                            document.getElementById("pro_id").value = "CST";
->>>>>>> 080d43bc1f991aaf54663a3bb8b10c9fc004a228
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
                                 document.getElementById("nameInput").value = userName;
                             }
-<<<<<<< HEAD
                             if (SETID != null) {
                                 document.getElementById("setid").value = SETID;
-=======
-                            if (userSet != null) {
-                                document.getElementById("set_id").value = userSet;
-                            }
-                            if (userTerm != null) {
-                                document.getElementById("term_id").value = userTerm;
->>>>>>> 080d43bc1f991aaf54663a3bb8b10c9fc004a228
                             }
                             if (userCampus != null) {
                                 document.getElementById("campus_id").value = userCampus;
@@ -280,24 +192,15 @@
         function saveUserInfo() {
             //console.log("Save user info");
             //grab values from the form that user inserted in each fields
-<<<<<<< HEAD
             userName = document.getElementById('nameInput').value; //get the value of the field with id="nameInput"
             SETID = document.getElementById('setid').value; //get the value of the field with id="schoolInput"
             PROGRAM_INFO = document.getElementById('pro_id').value;
             DUEDATE_LENGTH=document.getElementById('due_length').value;
 
-=======
-            userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-            userProgram = document.getElementById('pro_id').value;
-            userTerm = document.getElementById('term_id').value;
-            userSet = document.getElementById('set_id').value;
-            userCampus = document.getElementById('campus_id').value;
->>>>>>> 080d43bc1f991aaf54663a3bb8b10c9fc004a228
 
             //write the value in the database:
             currentUser.update({
                 name: userName,
-<<<<<<< HEAD
                 SET: SETID,
                 PROGRAM: PROGRAM_INFO,
                 Duedate_length:DUEDATE_LENGTH
@@ -307,15 +210,6 @@
 
             document.getElementById('personalInfoFields').disabled = true;
             
-=======
-                Program: userProgram,
-                Term: userTerm,
-                Set: userSet,
-                Campus: userCampus,
-            })
-
-            document.getElementById('personalInfoFields').disabled = true;
->>>>>>> 080d43bc1f991aaf54663a3bb8b10c9fc004a228
         }
     </script>
 </body>
