@@ -140,6 +140,21 @@ thead {
 .bac {
     text-align: center;
 }
+.offcanvas {
+    width: 70%;
+}
+
+.card {
+    text-align: center;
+    align-items: center;
+}
+
+.card img {
+    width: 80%;
+}
+
+
+
 @media(max-width: 1000px) {
     .navbar1 {
         display: none;

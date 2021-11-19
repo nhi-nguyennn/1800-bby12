@@ -248,6 +248,52 @@
         </script>
     </div>
 
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Your own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
+    <script>
+        //------------------------------------------------------------------
+        // Read from firestore to get a collection of hikes (of variable length)
+        // Then for each hike in the list,
+        // create a new "card" from the "template"
+        // update thet title and text, and other ID's 
+        // attach it to the gallery div
+        //-------------------------------------------------------------------
+        function displayCards(collection) {
+            let CardTemplate = document.getElementById("CardTemplate");
+
+            db.collection(collection).get()
+                .then(snap => {
+                    var i = 1;
+                    snap.forEach(doc => {    //iterate thru each doc
+                        var title = doc.data().name;
+                        var instructor = doc.data().Instructor;
+                        var room = doc.data().Location;
+                        var course_id = doc.data().courseID;
+                        let newcard = CardTemplate.content.cloneNode(true);
+
+                        //update title and text and image
+                        newcard.querySelector('.card-title').innerHTML = title;
+                        newcard.querySelector('.card-text').innerHTML = instructor;
+                        //newcard.querySelector('.card-text').innerHTML = room;
+                        //newcard.querySelector('.card-text').innerHTML = course_id;
+
+                        newcard.querySelector('.card-image').src = "../../img/course" + i + ".jpg";  //hikes.jpg
+
+                        newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc.id;    //firestore doc ID
+
+                        //give unique ids to all elements for future use
+                        newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+                        newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+                        newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+                        //attach to gallery "hikes-go-here" "heros-go-here" "countries-go-here"
+                        document.getElementById(collection + "-go-here").appendChild(newcard);
+                    })
+                })
+        }
+        displayCards("setC");
+    </script>
 </body>
 
 </html>
