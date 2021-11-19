@@ -118,7 +118,7 @@
     <form>
         <div class="form-group" style="display:inline-table;">
             <label for="DUEDATE" style="font-size: 20px;"><b>Weeks shown: </b></label>
-            <select class="form-control" id="DUEDATE" style="width:7vw;">
+            <select class="form-control" id="DUEDATE" style="width:8vw;">
                 <option></option>
                 <option>1_week</option>
                 <option>2_weeks</option>
@@ -134,7 +134,7 @@
 
 
     </form>
-    <br>
+
 
     <div class="container">
 
@@ -180,10 +180,10 @@
         </footer>
     </div>
 
-        <script>
-            function displayCards(collection) {
+    <script>
+        function displayCards(collection) {
 
-                firebase.auth().onAuthStateChanged(user => {
+            firebase.auth().onAuthStateChanged(user => {
                 if (user) {
                     var currentUser = db.collection("users").doc(user.uid)
                     var userID = user.uid;
@@ -193,11 +193,11 @@
                             //get user Email
                             var userEmail = userDoc.data().email;
                             var username = userDoc.data().name;
-                            var userset1=userDoc.data().SET;
-                           localStorage.setItem("para1",userset1)
+                            var userset1 = userDoc.data().SET;
+                            localStorage.setItem("para1", userset1)
                             console.log("hello");
-                            console.log("userset1:"+userset1);
-                        
+                            console.log("userset1:" + userset1);
+
                         })
                 } else {
                     // No user is signed in.
@@ -205,79 +205,85 @@
 
                 }
             });
-            var userset=localStorage.getItem("para1");
-            console.log("userset:"+userset);
-                var Length = localStorage.getItem("Para");
-                let CardTemplate = document.getElementById("CardTemplate");
-                console.log(Length)
-                var currenttime = new Date();
-                var currentdate = currenttime.getDate();
-                var currentmonth = currenttime.getMonth() + 1;
-                console.log(currentdate);
-                console.log(currentmonth);
-               
-
-                console.log(Length);
-                db.collection(collection).get()
-                    .then(snap => {
-
-                        snap.forEach(doc => { //iterate thru each doc
-                            var ASSIGNNAME = doc.data().Name;
-                            var ASSIGNTYPE = doc.data().Type;
-                            var set=doc.data().Setinfo;
-                            var str1 = doc.data().Due_date;
-                            var d1 = new Date(str1);
-                            var DUEDATE = d1.getDate();
-                            var Duemonth = d1.getMonth() + 1;
-
-                            var PROID = doc.data().Program;
-                            let newcard = CardTemplate.content.cloneNode(true);
-                            console.log(DUEDATE);
-                            console.log(Duemonth);
+            var userset = localStorage.getItem("para1");
+            console.log("userset:" + userset);
+            var Length = localStorage.getItem("Para");
+            let CardTemplate = document.getElementById("CardTemplate");
+            console.log(Length)
+            var currenttime = new Date();
+            var currentdate = currenttime.getDate();
+            var currentmonth = currenttime.getMonth() + 1;
 
 
-                            if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length)) || (
-                                    currentmonth - Duemonth == -1) && ((30 - currentdate+DUEDATE  ) <=
-                                    Length)) && userset==set) {
-                                //update title and text and image
-                                newcard.querySelector('.card-title').innerHTML = "Assignment Name: " +
-                                    ASSIGNNAME;
-                                newcard.querySelector('.card-text1').innerHTML = "Assignment Type: " +
-                                    ASSIGNTYPE;
-                                newcard.querySelector('.card-text2').innerHTML = "Course Number: " + PROID;
-                                newcard.querySelector('.card-text3').innerHTML = "Due date: " + str1;
-                                //     newcard.querySelector('.card-image').src = "buntzenlake" + collection + ".jpg";
+
+            console.log(Length);
+            db.collection(collection).get()
+                .then(snap => {
+
+                    snap.forEach(doc => { //iterate thru each doc
+                        var ASSIGNNAME = doc.data().Name;
+                        var ASSIGNTYPE = doc.data().Type;
+                        var set = doc.data().Setinfo;
+                        var str1 = doc.data().Due_date;
+                        var d1 = new Date(str1);
+                        var DUEDATE = d1.getDate();
+                        var Duemonth = d1.getMonth() + 1;
+
+                        var PROID = doc.data().Program;
+                        let newcard = CardTemplate.content.cloneNode(true);
+                        console.log(DUEDATE);
+                        console.log(Duemonth);
+                        console.log("currentday" + currentdate);
+                        console.log("currentmonth" + currentmonth);
+                        if ((currentmonth == Duemonth) && (currentdate == DUEDATE + 1)&& userset == set) {
+                            console.log(currentdate);
+
+                            console.log("alert");
+                            alert("Hi! Guys, you will have Assignment/Quiz today!");
+                        }
+                        if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length)) || (
+                                currentmonth - Duemonth == -1) && ((30 - currentdate + DUEDATE) <=
+                                Length)) && userset == set) {
+                            //update title and text and image
+                            newcard.querySelector('.card-title').innerHTML = "Assignment Name: " +
+                                ASSIGNNAME;
+                            newcard.querySelector('.card-text1').innerHTML = "Assignment Type: " +
+                                ASSIGNTYPE;
+                            newcard.querySelector('.card-text2').innerHTML = "Course Number: " + PROID;
+                            newcard.querySelector('.card-text3').innerHTML = "Due date: " + str1;
+                            //     newcard.querySelector('.card-image').src = "buntzenlake" + collection + ".jpg";
 
 
-                                document.getElementById(collection + "-go-here").appendChild(newcard);
-                            }
-                        })
+                            document.getElementById(collection + "-go-here").appendChild(newcard);
+
+                        }
                     })
+                })
+        }
+
+
+        displayCards("Assignments");
+
+        function writeReview() {
+
+            let dueday = document.getElementById("DUEDATE").value;
+            var length1 = 7;
+            if (dueday == "2_weeks") {
+                length1 = 14;
             }
-
-
-            displayCards("Assignments");
-
-            function writeReview() {
-
-                let dueday = document.getElementById("DUEDATE").value;
-                var length1 = 7;
-                if (dueday == "2_weeks") {
-                    length1 = 14;
-                }
-                if (dueday == "3_weeks") {
-                    length1 = 21;
-                }
-                if (dueday == "4_weeks") {
-                    length1 = 28;
-                }
-                localStorage.setItem("Para", length1);
-                console.log("length1:" + length1)
-                location.replace("http://127.0.0.1:5502/pages/assignment/assignment.html")
-               
+            if (dueday == "3_weeks") {
+                length1 = 21;
             }
-        </script>
-    
+            if (dueday == "4_weeks") {
+                length1 = 28;
+            }
+            localStorage.setItem("Para", length1);
+            console.log("length1:" + length1)
+            location.replace("http://127.0.0.1:5502/pages/assignment/assignment.html")
+
+        }
+    </script>
+
 
 
 
