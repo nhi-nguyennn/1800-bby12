@@ -47,13 +47,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
+                            <a class="nav-link" href="../main/main.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Feedback</a>
+                            <a class="nav-link" href="../main/feedback.html">Feedback</a>
                         </li>
                     </ul>
                     <ul class="right-menu">
@@ -66,56 +66,7 @@
         </nav>
     </div>
 
-    <!-- Navbar2 - Offcanvas -->
-    <div class="navbar2">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
-                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../../img/logo-black.png"
-                                alt="logo" style="max-width: 60px">Skedule</h2>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Courses</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Assignments</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Calendar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Profile</a>
-                            </li>
-                            <hr />
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Feedback</a>
-                            </li>
-                            <li class="nav-item login">
-                                <a class="nav-link" href="#">Log out</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
+
 
     <div class="container">
         <h1>User Profile </h1>
@@ -133,9 +84,13 @@
                     <label>PROGRAM_INFO</label>
                     <input type="text" id="pro_id" class="form-control" placeholder="PROGRAM INFO">
                 </div>
+                <div class="form-group">
+                    <label>Due_Date_Length</label>
+                    <input type="number" id="due_length" class="form-control" placeholder="Due_date_length(number)">
+                </div>
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
-                <a href="../main/main.html"><button type="button" class="btn btn-secondary" >Back</button></a>
+                <a href="../main/main.html"><button type="button" class="btn btn-secondary">Back</button></a>
                 <span style="width: 10px"></span>
                 <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                 <span style="width: 10px"></span>
@@ -148,7 +103,7 @@
 
     <div class="container bac">
         <footer>
-            <hr/>
+            <hr />
             <img src="../../img/logo-black.png" alt="logo" style="max-width: 60px">
             <p class="text-muted">&copy; 2021 BBY12, Inc</p>
         </footer>
@@ -173,19 +128,23 @@
                         .then(userDoc => {
                             //get the data fields of the user
                             var userName = userDoc.data().name;
-                            var SETID = userDoc.data().SET_ID;
-                            var PROGRAM_INFO = userDoc.data().PROGRAM_INFO;
+                            var SETID = userDoc.data().SET;
+                            var PROGRAM_INFO = userDoc.data().PROGRAM;
+                            var Prefered_duedate_Length =userDoc.data().Duedate_length;
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
                                 document.getElementById("nameInput").value = userName;
                             }
                             if (SETID != null) {
-                                document.getElementById("set_id").value = SETID;
+                                document.getElementById("setid").value = SETID;
                             }
                             if (PROGRAM_INFO != null) {
                                 document.getElementById("pro_id").value = PROGRAM_INFO;
                             }
+                            if (Prefered_duedate_Length != null) {
+                                document.getElementById("due_length").value = Prefered_duedate_Length;}
+
                         })
                 } else {
                     // No user is signed in.
@@ -205,23 +164,24 @@
         function saveUserInfo() {
             //console.log("Save user info");
             //grab values from the form that user inserted in each fields
-            userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-            SETID = document.getElementById('setid').value;     //get the value of the field with id="schoolInput"
+            userName = document.getElementById('nameInput').value; //get the value of the field with id="nameInput"
+            SETID = document.getElementById('setid').value; //get the value of the field with id="schoolInput"
             PROGRAM_INFO = document.getElementById('pro_id').value;
-
+            DUEDATE_LENGTH=document.getElementById('due_length').value;
 
 
             //write the value in the database:
             currentUser.update({
                 name: userName,
                 SET: SETID,
-                PROGRAM: PROGRAM_INFO
+                PROGRAM: PROGRAM_INFO,
+                Duedate_length:DUEDATE_LENGTH
             })
 
-        
+
 
             document.getElementById('personalInfoFields').disabled = true;
-            document.getElementById("Save").innerHTML="Save Succesfully.";
+            
         }
     </script>
 </body>

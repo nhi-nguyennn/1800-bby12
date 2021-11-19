@@ -59,16 +59,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="../main/main.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Courses</a>
+                            <a class="nav-link" href="../main/courses.html">Courses</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Assignments</a>
+                            <a class="nav-link" href="assignment.html">Assignments</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Calendar</a>
+                            <a class="nav-link" href="../main/calendar.html">Calendar</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../profile/profile.html">Profile</a>
@@ -142,6 +142,7 @@
                 <h2>Please input new assignment</h2>
 
                 <form>
+                    <fieldset class="mb-3" id="personalInfoFields" disabled>
                     <div class="form-group">
                         <label for="Assignment_name">Assignment Name:</label>
                         <input type="text" class="form-control" id="Assignment_name">
@@ -172,18 +173,23 @@
                         <label for="Duedate">Due date(YYYY/MM/DD):</label>
                         <input type="date" class="form-control" id="Duedate" name="trip-start" value="2021-01-11" min="2015-01-01" max="2030-12-31">
                     </div><br>
-
+                </fieldset>
                     <div class="d-flex justify-content-end">
-                        <button type="button" onclick="window.location.href='/main.html'"
+                        <button type="button" onclick="window.location.href='../main/main.html'"
                             class="btn btn-lg btn-primary pull-right">Back</button>
+
+                            <span style="width: 10px"></span>
+                            <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
+
                         <span style="width: 10px"></span>
                         <button type="button" class="btn btn-lg btn-primary pull-right"
                             onclick="writeReview()">Submit</button>
                     </div>
+               
                 </form>
             </div>
         </div>
-
+        
     </header>
 
     <div class="container bac">
@@ -226,16 +232,16 @@
                             var userEmail = userDoc.data().email;
                             var username = userDoc.data().name;
                             // Start a new collection and add all data in it.
-                            db.collection("Assignment").add({
+                            db.collection("Assignments").add({
                                 username: username,
                                 useremail: userEmail,
-                                Assignment_Name: Assignment_name1,
-                                Program_id: Program_id1,
-                                Assignment_type: Assign_type1,
+                                Name: Assignment_name1,
+                                Program: Program_id1,
+                                Type: Assign_type1,
                                 Due_date: Duedate1
 
                             });
-                            document.getElementById("submit").innerHTML = "Submit Succesfully.";
+                            
                         })
                 } else {
                     // No user is signed in.
@@ -244,7 +250,14 @@
                 }
             });
             console.log("write success");
+            document.getElementById('personalInfoFields').disabled = true;
         }
+        function editUserInfo() {
+            //Enable the form fields
+            document.getElementById('personalInfoFields').disabled = false;
+        }
+
+        document.getElementById('personalInfoFields').disabled = true;
     </script>
 </body>
 
