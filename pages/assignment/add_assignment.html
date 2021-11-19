@@ -173,6 +173,10 @@
                         <label for="Duedate">Due date(YYYY/MM/DD):</label>
                         <input type="date" class="form-control" id="Duedate" name="trip-start" value="2021-01-11" min="2015-01-01" max="2030-12-31">
                     </div><br>
+                    <div class="form-group">
+                        <label for="setinfo">Set Info:</label>
+                        <input type="text" class="form-control" id="setinfo">
+                    </div><br>
                 </fieldset>
                     <div class="d-flex justify-content-end">
                         <button type="button" onclick="window.location.href='../main/main.html'"
@@ -220,7 +224,7 @@
             let Program_id1 = document.getElementById("program_id").value;
             let Assign_type1 = document.getElementById("Assign_type").value;
             let Duedate1 = document.getElementById("Duedate").value;
-
+            let setinfo = document.getElementById("setinfo").value;
             firebase.auth().onAuthStateChanged(user => {
                 if (user) {
                     var currentUser = db.collection("users").doc(user.uid)
@@ -238,7 +242,8 @@
                                 Name: Assignment_name1,
                                 Program: Program_id1,
                                 Type: Assign_type1,
-                                Due_date: Duedate1
+                                Due_date: Duedate1,
+                                Setinfo:setinfo
 
                             });
                             

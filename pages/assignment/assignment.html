@@ -183,8 +183,31 @@
         <script>
             function displayCards(collection) {
 
+                firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    var currentUser = db.collection("users").doc(user.uid)
+                    var userID = user.uid;
+                    //get the document for current user.
+                    currentUser.get()
+                        .then(userDoc => {
+                            //get user Email
+                            var userEmail = userDoc.data().email;
+                            var username = userDoc.data().name;
+                            var userset1=userDoc.data().SET;
+                           localStorage.setItem("para1",userset1)
+                            console.log("hello");
+                            console.log("userset1:"+userset1);
+                        
+                        })
+                } else {
+                    // No user is signed in.
+                    console.log("no user signed in");
 
-                const Length = localStorage.getItem("Para");
+                }
+            });
+            var userset=localStorage.getItem("para1");
+            console.log("userset:"+userset);
+                var Length = localStorage.getItem("Para");
                 let CardTemplate = document.getElementById("CardTemplate");
                 console.log(Length)
                 var currenttime = new Date();
@@ -201,7 +224,7 @@
                         snap.forEach(doc => { //iterate thru each doc
                             var ASSIGNNAME = doc.data().Name;
                             var ASSIGNTYPE = doc.data().Type;
-
+                            var set=doc.data().Setinfo;
                             var str1 = doc.data().Due_date;
                             var d1 = new Date(str1);
                             var DUEDATE = d1.getDate();
@@ -213,9 +236,9 @@
                             console.log(Duemonth);
 
 
-                            if (((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length)) || (
+                            if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length)) || (
                                     currentmonth - Duemonth == -1) && ((30 - currentdate+DUEDATE  ) <=
-                                    Length)) {
+                                    Length)) && userset==set) {
                                 //update title and text and image
                                 newcard.querySelector('.card-title').innerHTML = "Assignment Name: " +
                                     ASSIGNNAME;
