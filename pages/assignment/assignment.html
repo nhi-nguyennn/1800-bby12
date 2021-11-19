@@ -192,7 +192,7 @@
                 var currentmonth = currenttime.getMonth() + 1;
                 console.log(currentdate);
                 console.log(currentmonth);
-
+               
 
                 console.log(Length);
                 db.collection(collection).get()
@@ -250,6 +250,8 @@
                 }
                 localStorage.setItem("Para", length1);
                 console.log("length1:" + length1)
+                location.replace("http://127.0.0.1:5502/pages/assignment/assignment.html")
+               
             }
         </script>
     
