@@ -19,7 +19,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link href="../../img/logo-black.png" rel="icon" type="image/png" />
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style>
     * {
       box-sizing: border-box;
@@ -148,7 +148,7 @@
               <a class="nav-link" href="courses.html">Courses</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
+              <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="calendar.html">Calendar</a>
@@ -156,7 +156,7 @@
           </ul>
           <ul class="right-menu">
             <li class="nav-item login">
-              <a href="#" class="btn-top">Log out</a>
+              <a href="../../index.html" class="btn-top" onclick="logout()">Log out</a>
             </li>
           </ul>
         </div>
@@ -164,63 +164,23 @@
     </nav>
   </div>
 
-  <!-- Navbar2 - Offcanvas -->
-  <div class="navbar2">
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
-        <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../../img/logo-black.png" alt="logo"
-                style="max-width: 60px">Skedule</h2>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-              <li class="nav-item">
-                <a class="nav-link" href="main.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="courses.html">Courses</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./assignment/assignment.html">Assignments</a>
-              </li>
-              <hr />
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="feedback.html">Feedback</a>
-              </li>
-              <li class="nav-item login">
-                <a class="nav-link" href="index.html">Log out</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
+
 
   <div class="month">
     <ul>
-      <li class="prev">&#10094;</li>
-      <li class="next">&#10095;</li>
+      <li class="prev"><button onclick="myfunction1()">&#10094;</button></li>
+      <li class="next"><button onclick="myfunction()">&#10095;</button></li>
       <li>
-        November<br>
+        <h2 id="M">N</h2> <br>
         <span style="font-size:25px">2021</span>
       </li>
     </ul>
   </div>
 
   <ul class="weekdays">
-    <li>Mon</li>
+    <li>
+      <p>Mon</p>
+    </li>
     <li>Tue</li>
     <li>Wed</li>
     <li>Thur</li>
@@ -229,9 +189,9 @@
     <li>Sun</li>
   </ul>
 
-  <ul class="days">
+  <ul class="days" id="x11">
     <li><span id="d1">1</span></li>
-    <li><span id="d2"></span>2</li>
+    <li><span id="d2">2</span></li>
     <li><span id="d3">3</span></li>
     <li><span id="d4">4</span></li>
     <li><span id="d5">5</span></li>
@@ -262,6 +222,80 @@
     <li><span id="d30">30</span></li>
     <li><span id="d31">31</span></li>
   </ul>
+  <ul class="days" id="x12">
+    <li><span id="d1"></span></li>
+    <li><span id="d2"></span></li>
+    <li><span id="d3">1</span></li>
+    <li><span id="d4">2</span></li>
+    <li><span id="d5">3</span></li>
+    <li><span id="d6">4</span></li>
+    <li><span id="d7">5</span></li>
+    <li><span id="d8">6</span></li>
+    <li><span id="d9">7</span></li>
+    <li><span id="d10">8</span></li>
+    <li><span id="d11">9</span></li>
+    <li><span id="d12">10</span></li>
+    <li><span id="d13">11</span></li>
+    <li><span id="d14">12</span></li>
+    <li><span id="d15">13</span></li>
+    <li><span id="d16">14</span></li>
+    <li><span id="d17">15</span></li>
+    <li><span id="d18">16</span></li>
+    <li><span id="d19">17</span></li>
+    <li><span id="d20">18</span></li>
+    <li><span id="d21">19</span></li>
+    <li><span id="d22">20</span></li>
+    <li><span id="d23">21</span></li>
+    <li><span id="d24">22</span></li>
+    <li><span id="d25">23</span></li>
+    <li><span id="d26">24</span></li>
+    <li><span id="d27">25</span></li>
+    <li><span id="d28">26</span></li>
+    <li><span id="d29">27</span></li>
+    <li><span id="d30">28</span></li>
+    <li><span id="d31">29</span></li>
+    <li><span id="d29">30</span></li>
+    <li><span id="d30">31</span></li>
+
+  </ul>
+  <ul class="days" id="x10">
+    <li><span id="d1"></span></li>
+    <li><span id="d2"></span></li>
+    <li><span id="d3"></span></li>
+    <li><span id="d4"></span></li>
+    <li><span id="d5">1</span></li>
+    <li><span id="d6">2</span></li>
+    <li><span id="d7">3</span></li>
+    <li><span id="d8">4</span></li>
+    <li><span id="d9">5</span></li>
+    <li><span id="d10">6</span></li>
+    <li><span id="d11">7</span></li>
+    <li><span id="d12">8</span></li>
+    <li><span id="d13">9</span></li>
+    <li><span id="d14">10</span></li>
+    <li><span id="d15">11</span></li>
+    <li><span id="d16">12</span></li>
+    <li><span id="d17">13</span></li>
+    <li><span id="d18">14</span></li>
+    <li><span id="d19">15</span></li>
+    <li><span id="d20">16</span></li>
+    <li><span id="d21">17</span></li>
+    <li><span id="d22">18</span></li>
+    <li><span id="d23">19</span></li>
+    <li><span id="d24">20</span></li>
+    <li><span id="d25">21</span></li>
+    <li><span id="d26">22</span></li>
+    <li><span id="d27">23</span></li>
+    <li><span id="d28">24</span></li>
+    <li><span id="d29">25</span></li>
+    <li><span id="d30">26</span></li>
+    <li><span id="d31">27</span></li>
+    <li><span id="d29">28</span></li>
+    <li><span id="d30">29</span></li>
+    <li><span id="d29">30</span></li>
+    <li><span id="d30">31</span></li>
+
+  </ul>
 
   <!-- Footer -->
   <div class="container bac">
@@ -282,18 +316,127 @@
   </div>
 
   <script>
+
+    function logout() {
+            console.log("logging out user");
+            firebase.auth().signOut().then(() => {
+                // Sign-out successful.
+                window.location.href = "../../index.html";
+            }).catch((error) => {
+                // An error happened.
+            });
+        }
     var dHighlight = new Date();
+    var currentTime = dHighlight.getDate();
 
-    let currentTime = dHighlight .getDate();
-
-    let num = "d" + currentTime;
+    var currentmonth = dHighlight.getMonth();
+    var num = "d" + currentTime;
 
     document.getElementById(num).style.color = "blue";
 
-    function highlight() {
+    if (currentmonth == 10) {
+      document.getElementById("M").innerHTML = "November";
+    }
+
+    if (currentmonth == 11) {
+      document.getElementById("M").innerHTML = "December";
+    }
+
+    $("#x10").hide();
+    $("#x11").hide();
+
+    $("#x12").hide();
+
+    if (currentmonth == 10) {
+      $("#x11").show();
 
     }
 
+    if (currentmonth == 11) {
+      $("#x12").show();
+
+    }
+
+
+    function myfunction() {
+      currentmonth += 1;
+      console.log(currentmonth);
+      num = "d" + currentTime;
+
+      document.getElementById(num).style.color = "blue";
+
+      if (currentmonth == 9) {
+        document.getElementById("M").innerHTML = "October";
+      }
+
+      if (currentmonth == 10) {
+        document.getElementById("M").innerHTML = "November";
+      }
+
+      if (currentmonth == 11) {
+        document.getElementById("M").innerHTML = "December";
+      }
+
+
+      $("#x10").hide();
+      $("#x11").hide();
+
+      $("#x12").hide();
+
+      if (currentmonth == 10) {
+        $("#x11").show();
+
+      }
+
+      if (currentmonth == 11) {
+        $("#x12").show();
+
+      }
+      if (currentmonth == 9) {
+        $("#x10").show();
+
+      }
+    }
+
+    function myfunction1() {
+      currentmonth -= 1;
+      console.log(currentmonth);
+      num = "d" + currentTime;
+
+      document.getElementById(num).style.color = "blue";
+
+      if (currentmonth == 9) {
+        document.getElementById("M").innerHTML = "October";
+      }
+
+      if (currentmonth == 10) {
+        document.getElementById("M").innerHTML = "November";
+      }
+
+      if (currentmonth == 11) {
+        document.getElementById("M").innerHTML = "December";
+      }
+
+      $("#x10").hide();
+
+      $("#x11").hide();
+
+      $("#x12").hide();
+
+      if (currentmonth == 10) {
+        $("#x11").show();
+
+      }
+
+      if (currentmonth == 11) {
+        $("#x12").show();
+
+      }
+      if (currentmonth == 9) {
+        $("#x10").show();
+
+      }
+    }
   </script>
 
 </body>

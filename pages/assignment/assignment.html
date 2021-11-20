@@ -61,7 +61,7 @@
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="#" class="btn-top">Log out</a>
+                            <a href="#" class="btn-top" onclick="logout()" >Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -105,7 +105,7 @@
                                 <a class="nav-link" href="#">Feedback</a>
                             </li>
                             <li class="nav-item login">
-                                <a class="nav-link" href="#">Log out</a>
+                                <a class="nav-link" href="#" onclick="logout()">Log out</a>
                             </li>
                         </ul>
                     </div>
@@ -181,6 +181,17 @@
     </div>
 
     <script>
+        function logout() {
+            console.log("logging out user");
+            firebase.auth().signOut().then(() => {
+                // Sign-out successful.
+                window.location.href = "../../index.html";
+            }).catch((error) => {
+                // An error happened.
+            });
+        }
+
+
         function displayCards(collection) {
 
             firebase.auth().onAuthStateChanged(user => {
@@ -235,7 +246,7 @@
                         console.log(Duemonth);
                         console.log("currentday" + currentdate);
                         console.log("currentmonth" + currentmonth);
-                        if ((currentmonth == Duemonth) && (currentdate == DUEDATE + 1)&& userset == set) {
+                        if ((currentmonth == Duemonth) && (currentdate == DUEDATE + 1) && userset == set) {
                             console.log(currentdate);
 
                             console.log("alert");

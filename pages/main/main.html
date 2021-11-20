@@ -67,7 +67,7 @@
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="#" class="btn-top" >Log out</a>
+                            <a href="#" class="btn-top" onclick="logout()">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -104,6 +104,16 @@
     </script>
 
     <script>
+        function logout() {
+            console.log("logging out user");
+            firebase.auth().signOut().then(() => {
+                // Sign-out successful.
+                window.location.href = "../../index.html";
+            }).catch((error) => {
+                // An error happened.
+            });
+        }
+
         function read_display_Quote() {
             var dayOfWeek = new Date();
             var j = dayOfWeek.getDay();
@@ -131,13 +141,13 @@
                         console.log("currenct document data: " + WednesdayDoc.data());
                         document.getElementById("quote-goes-here").innerHTML = WednesdayDoc.data().quote;
                     })
-            } else if (j == 4){
+            } else if (j == 4) {
                 db.collection("quotes").doc("Thursday")
                     .onSnapshot(ThursdayDoc => {
                         console.log("currenct document data: " + ThursdayDoc.data());
                         document.getElementById("quote-goes-here").innerHTML = ThursdayDoc.data().quote;
                     })
-            } else if (j == 5){
+            } else if (j == 5) {
                 db.collection("quotes").doc("Friday")
                     .onSnapshot(FridayDoc => {
                         console.log("currenct document data: " + FridayDoc.data());
@@ -182,10 +192,6 @@
         }
 
         insertName();
-
-       
-
-        
     </script>
 </body>
 

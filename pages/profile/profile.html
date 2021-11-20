@@ -58,7 +58,7 @@
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="#" class="btn-top">Log out</a>
+                            <a href="#" class="btn-top" onclick="logout()">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -84,7 +84,7 @@
                     <label>PROGRAM_INFO</label>
                     <input type="text" id="pro_id" class="form-control" placeholder="PROGRAM INFO">
                 </div>
-                
+
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
                 <a href="../main/main.html"><button type="button" class="btn btn-secondary">Back</button></a>
@@ -111,6 +111,16 @@
     <!--------------------------------------------------------------------->
     <!-- <script src="./scripts/my_script.js"></script> -->
     <script>
+        function logout() {
+            console.log("logging out user");
+            firebase.auth().signOut().then(() => {
+                // Sign-out successful.
+                window.location.href = "../../index.html";
+            }).catch((error) => {
+                // An error happened.
+            });
+        }
+
         var currentUser;
 
         function populateInfo() {
@@ -127,7 +137,7 @@
                             var userName = userDoc.data().name;
                             var SETID = userDoc.data().SET;
                             var PROGRAM_INFO = userDoc.data().PROGRAM;
-                            var Prefered_duedate_Length =userDoc.data().Duedate_length;
+                            var Prefered_duedate_Length = userDoc.data().Duedate_length;
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
@@ -139,7 +149,7 @@
                             if (PROGRAM_INFO != null) {
                                 document.getElementById("pro_id").value = PROGRAM_INFO;
                             }
-                        
+
 
                         })
                 } else {
@@ -163,7 +173,7 @@
             userName = document.getElementById('nameInput').value; //get the value of the field with id="nameInput"
             SETID = document.getElementById('setid').value; //get the value of the field with id="schoolInput"
             PROGRAM_INFO = document.getElementById('pro_id').value;
-           
+
 
 
             //write the value in the database:
@@ -171,13 +181,13 @@
                 name: userName,
                 SET: SETID,
                 PROGRAM: PROGRAM_INFO,
-             
+
             })
 
 
 
             document.getElementById('personalInfoFields').disabled = true;
-            
+
         }
     </script>
 </body>
