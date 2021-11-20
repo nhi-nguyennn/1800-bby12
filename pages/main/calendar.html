@@ -286,7 +286,9 @@
 
     let currentTime = dHighlight .getDate();
 
-    getElementByID("d" + currentTime);
+    let num = "d" + currentTime;
+
+    document.getElementById(num).style.color = "blue";
 
     function highlight() {
 
