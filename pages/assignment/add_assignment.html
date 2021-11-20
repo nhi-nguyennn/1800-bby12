@@ -181,14 +181,13 @@
                     </fieldset>
                     <div class="d-flex justify-content-end">
                         <button type="button" onclick="window.location.href='../main/main.html'"
-                            class="btn btn-lg btn-primary pull-right">Back</button>
+                            class="btn btn-primary pull-right">Back</button>
 
                         <span style="width: 10px"></span>
                         <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
 
                         <span style="width: 10px"></span>
-                        <button type="button" class="btn btn-lg btn-primary pull-right"
-                            onclick="writeReview()">Submit</button>
+                        <button type="button" class="btn btn-primary pull-right" onclick="writeReview()">Submit</button>
                     </div>
 
                 </form>
@@ -230,7 +229,6 @@
             });
         }
 
-
         function writeReview() {
             let Assignment_name1 = document.getElementById("Assignment_name").value;
             let Program_id1 = document.getElementById("program_id").value;
@@ -256,7 +254,6 @@
                                 Type: Assign_type1,
                                 Due_date: Duedate1,
                                 Setinfo: setinfo
-
                             });
 
                         })
