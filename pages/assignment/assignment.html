@@ -263,7 +263,13 @@
                             newcard.querySelector('.card-text2').innerHTML = "Course Number: " + PROID;
                             newcard.querySelector('.card-text3').innerHTML = "Due date: " + str1;
                             //     newcard.querySelector('.card-image').src = "buntzenlake" + collection + ".jpg";
-
+                            if ((currentmonth == Duemonth) && (currentdate == DUEDATE + 1) && userset == set) {
+                            console.log(currentdate);
+                            newcard.querySelector('.card-text1').style.color ="red";
+                            newcard.querySelector('.card-text2').style.color ="red";
+                            newcard.querySelector('.card-text3').style.color ="red";
+                            newcard.querySelector('.card-title').style.color ="red";
+                            }
 
                             document.getElementById(collection + "-go-here").appendChild(newcard);
 
