@@ -61,7 +61,7 @@
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="#" class="btn-top" onclick="logout()" >Log out</a>
+                            <a href="#" class="btn-top" onclick="logout()">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -262,12 +262,13 @@
                             newcard.querySelector('.card-text2').innerHTML = "Course Number: " + PROID;
                             newcard.querySelector('.card-text3').innerHTML = "Due date: " + str1;
                             //     newcard.querySelector('.card-image').src = "buntzenlake" + collection + ".jpg";
-                            if ((currentmonth == Duemonth) && (currentdate == DUEDATE + 1) && userset == set) {
-                            console.log(currentdate);
-                            newcard.querySelector('.card-text1').style.color ="red";
-                            newcard.querySelector('.card-text2').style.color ="red";
-                            newcard.querySelector('.card-text3').style.color ="red";
-                            newcard.querySelector('.card-title').style.color ="red";
+                            if ((currentmonth == Duemonth) && (currentdate == DUEDATE + 1) && userset ==
+                                set) {
+                                console.log(currentdate);
+                                newcard.querySelector('.card-text1').style.color = "red";
+                                newcard.querySelector('.card-text2').style.color = "red";
+                                newcard.querySelector('.card-text3').style.color = "red";
+                                newcard.querySelector('.card-title').style.color = "red";
                             }
 
                             document.getElementById(collection + "-go-here").appendChild(newcard);
@@ -280,7 +281,24 @@
 
         displayCards("Assignments");
 
+        function writeReview() {
 
+            let dueday = document.getElementById("DUEDATE").value;
+            var length1 = 7;
+            if (dueday == "2_weeks") {
+                length1 = 14;
+            }
+            if (dueday == "3_weeks") {
+                length1 = 21;
+            }
+            if (dueday == "4_weeks") {
+                length1 = 28;
+            }
+            localStorage.setItem("Para", length1);
+            console.log("length1:" + length1)
+            location.replace("http://127.0.0.1:5502/pages/assignment/assignment.html")
+
+        }
     </script>
 
 
