@@ -117,6 +117,7 @@
         function read_display_Quote() {
             var dayOfWeek = new Date();
             var j = dayOfWeek.getDay();
+            
             if (j == 0) {
                 db.collection("quotes").doc("Sunday")
                     .onSnapshot(SundayDoc => {
