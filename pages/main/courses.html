@@ -48,7 +48,7 @@
           </ul>
           <ul class="right-menu">
             <li class="nav-item login">
-              <a href="../../index.html" class="btn-top">Log out</a>
+              <a href="../../index.html" class="btn-top" onclick="logout()">Log out</a>
             </li>
           </ul>
         </div>
@@ -56,49 +56,7 @@
     </nav>
   </div>
 
-  <!-- Navbar2 - Offcanvas -->
-  <div class="navbar2">
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
-        <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header">
-            <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../../img/logo-black.png" alt="logo"
-                style="max-width: 60px">Skedule</h2>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-              <li class="nav-item">
-                <a class="nav-link" href="main.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="courses.html">Courses</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
-              </li>
-              <hr />
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="feedback.html">Feedback</a>
-              </li>
-              <li class="nav-item login">
-                <a class="nav-link" href="../../index.html">Log out</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
+
 
   <h1 class="title">My Courses</h1>
 
@@ -181,6 +139,16 @@
   </script>
 
   <script>
+    function logout() {
+      console.log("logging out user");
+      firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "../../index.html";
+      }).catch((error) => {
+        // An error happened.
+      });
+    }
+
     function read_display_Quote() {
       db.collection("quotes").doc("Friday")
         .onSnapshot(FridayDoc => {

@@ -38,8 +38,7 @@
     <div class="navbar1">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo"
-                        style="max-width: 60px"></a>
+                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -51,21 +50,15 @@
                             <a class="nav-link" href="../main/main.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../main/courses.html">Courses</a>
+                            <a class="nav-link" href="../main/about.html">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./calendar.html">Calendar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../profile/profile.html" class="nav-link">Profile</a>
+                            <a class="nav-link" href="../main/feedback.html">Feedback</a>
                         </li>
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="../../index.html" class="btn-top">Log out</a>
+                            <a href="#" class="btn-top" onclick="logout()">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -73,104 +66,28 @@
         </nav>
     </div>
 
-    <!-- Navbar2 - Offcanvas -->
-    <div class="navbar2">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo"
-                        style="max-width: 60px"></a>
-                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../../img/logo-black.png"
-                                alt="logo" style="max-width: 60px">Skedule</h2>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="../main/main.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../main/courses.html">Courses</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./calendar.html">Calendar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../profile/profile.html" class="nav-link">Profile</a>
-                            </li>
-                            <hr />
-                            <li class="nav-item">
-                                <a class="nav-link" href="./about.html">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./feedback.html">Feedback</a>
-                            </li>
-                            <li class="nav-item login">
-                                <a class="nav-link" href="../../index.html">Log out</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
+
 
     <div class="container">
         <h1>User Profile </h1>
         <form>
             <fieldset class="mb-3" id="personalInfoFields" disabled>
                 <div class="form-group">
-                    <label>User Name</label>
+                    <label>Name</label>
                     <input type="text" id="nameInput" class="form-control" placeholder="Enter your name">
                 </div>
-                <br />
                 <div class="form-group">
-                    <label>Program</label>
-                    <input type="text" id="pro_id" class="form-control" placeholder="Enter your program">
+                    <label>SET_ID</label>
+                    <input type="text" id="setid" class="form-control" placeholder="Enter your SET ID">
                 </div>
-                <br />
                 <div class="form-group">
-                    <label>Term</label>
-                    <select class="form-control" id="term_id">
-                        <option>Term 1</option>
-                        <option>Term 2</option>
-                        <option>Term 3</option>
-                        <option>Term 4</option>
-                    </select>
-                </div>
-                <br />
-                <div class="form-group">
-                    <label>Set</label>
-                    <select class="form-control" id="set_id">
-                        <option>A</option>
-                        <option>B</option>
-                        <option>C</option>
-                        <option>D</option>
-                        <option>E</option>
-                        <option>F</option>
-                    </select>
-                </div>
-                <br />
-                <div class="form-group">
-                    <label>Campus</label>
-                    <select class="form-control" id="campus_id">
-                        <option>Burnaby</option>
-                        <option>Downtown</option>
-                    </select>
+                    <label>PROGRAM_INFO</label>
+                    <input type="text" id="pro_id" class="form-control" placeholder="PROGRAM INFO">
                 </div>
 
             </fieldset>
             <div class="d-flex justify-content-end mt-5">
+                <a href="../main/main.html"><button type="button" class="btn btn-secondary">Back</button></a>
                 <span style="width: 10px"></span>
                 <button type="button" class="btn btn-secondary" onclick="editUserInfo()">Edit</button>
                 <span style="width: 10px"></span>
@@ -178,6 +95,8 @@
             </div>
         </form>
     </div>
+
+    <h3 id="Save"></h3>
 
     <div class="container bac">
         <footer>
@@ -191,10 +110,17 @@
     <!-- JS files: Your own JavaScript functions included here    -->
     <!--------------------------------------------------------------------->
     <!-- <script src="./scripts/my_script.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-        </script>
     <script>
+        function logout() {
+            console.log("logging out user");
+            firebase.auth().signOut().then(() => {
+                // Sign-out successful.
+                window.location.href = "../../index.html";
+            }).catch((error) => {
+                // An error happened.
+            });
+        }
+
         var currentUser;
 
         function populateInfo() {
@@ -209,26 +135,22 @@
                         .then(userDoc => {
                             //get the data fields of the user
                             var userName = userDoc.data().name;
-                            var userProgram = userDoc.data().program;
-                            var userTerm = userDoc.data().term;
-                            var userSet = userDoc.data().set;
-                            var userCampus = userDoc.data().campus;
-
-                            document.getElementById("pro_id").value = "CST";
+                            var SETID = userDoc.data().SET;
+                            var PROGRAM_INFO = userDoc.data().PROGRAM;
+                            var Prefered_duedate_Length = userDoc.data().Duedate_length;
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
                                 document.getElementById("nameInput").value = userName;
                             }
-                            if (userSet != null) {
-                                document.getElementById("set_id").value = userSet;
+                            if (SETID != null) {
+                                document.getElementById("setid").value = SETID;
                             }
-                            if (userTerm != null) {
-                                document.getElementById("term_id").value = userTerm;
+                            if (PROGRAM_INFO != null) {
+                                document.getElementById("pro_id").value = PROGRAM_INFO;
                             }
-                            if (userCampus != null) {
-                                document.getElementById("campus_id").value = userCampus;
-                            }
+
+
                         })
                 } else {
                     // No user is signed in.
@@ -248,22 +170,24 @@
         function saveUserInfo() {
             //console.log("Save user info");
             //grab values from the form that user inserted in each fields
-            userName = document.getElementById('nameInput').value;       //get the value of the field with id="nameInput"
-            userProgram = document.getElementById('pro_id').value;
-            userTerm = document.getElementById('term_id').value;
-            userSet = document.getElementById('set_id').value;
-            userCampus = document.getElementById('campus_id').value;
+            userName = document.getElementById('nameInput').value; //get the value of the field with id="nameInput"
+            SETID = document.getElementById('setid').value; //get the value of the field with id="schoolInput"
+            PROGRAM_INFO = document.getElementById('pro_id').value;
+
+
 
             //write the value in the database:
             currentUser.update({
                 name: userName,
-                Program: userProgram,
-                Term: userTerm,
-                Set: userSet,
-                Campus: userCampus,
+                SET: SETID,
+                PROGRAM: PROGRAM_INFO,
+
             })
 
+
+
             document.getElementById('personalInfoFields').disabled = true;
+
         }
     </script>
 </body>

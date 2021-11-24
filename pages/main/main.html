@@ -40,7 +40,8 @@
     <div class="navbar1">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="main.html"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
+                <a class="navbar-brand" href="main.html"><img src="../../img/logo-trans.png" alt="logo"
+                        style="max-width: 60px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -52,21 +53,21 @@
                             <a class="nav-link" href="main.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./courses.html">Courses</a>
+                            <a class="nav-link" href="courses.html">Courses</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./calendar.html">Calendar</a>
+                            <a class="nav-link" href="calendar.html">Calendar</a>
                         </li>
                         <li class="nav-item">
-                            <a href="../profile/profile.html" class="nav-link" >Profile</a>
+                            <a href="../profile/profile.html" class="nav-link">Profile</a>
                         </li>
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="../../index.html" class="btn-top">Log out</a>
+                            <a href="#" class="btn-top" onclick="logout()">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -74,63 +75,13 @@
         </nav>
     </div>
 
-    <!-- Navbar2 - Offcanvas -->
-    <div class="navbar2">
-        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="main.html"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
-                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../../img/logo-black.png"
-                                alt="logo" style="max-width: 60px">Skedule</h2>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="main.html">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./courses.html">Courses</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./calendar.html">Calendar</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../profile/profile.html" class="nav-link" >Profile</a>
-                            </li>
-                            <hr />
-                            <li class="nav-item">
-                                <a class="nav-link" href="./about.html">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./feedback.html">Feedback</a>
-                            </li>
-                            <li class="nav-item login">
-                                <a class="nav-link" href="../../index.html">Log out</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
 
     <!-- Showcase -->
     <header class="showcase">
         <div class="content">
             <h1>Welcome to Skedule, <span id="name-goes-here"></span>!</h1>
             <p><span id="quote-goes-here"></span>
-            <br/>Enjoy your learning life...
+                <br />Enjoy your learning life...
             </p>
             <br />
             <a href="../assignment/add_assignment.html" class="btn"><i class="fas fa-plus"></i> Add new assignment</a>
@@ -153,12 +104,64 @@
     </script>
 
     <script>
+        function logout() {
+            console.log("logging out user");
+            firebase.auth().signOut().then(() => {
+                // Sign-out successful.
+                window.location.href = "../../index.html";
+            }).catch((error) => {
+                // An error happened.
+            });
+        }
+
         function read_display_Quote() {
-            db.collection("quotes").doc("Friday")
-                .onSnapshot(FridayDoc => {
-                    console.log("currenct document data: " + FridayDoc.data());
-                    document.getElementById("quote-goes-here").innerHTML = FridayDoc.data().quote;
-                })
+            var dayOfWeek = new Date();
+            var j = dayOfWeek.getDay();
+            
+            if (j == 0) {
+                db.collection("quotes").doc("Sunday")
+                    .onSnapshot(SundayDoc => {
+                        console.log("currenct document data: " + SundayDoc.data());
+                        document.getElementById("quote-goes-here").innerHTML = SundayDoc.data().quote;
+                    })
+            } else if (j == 1) {
+                db.collection("quotes").doc("Monday")
+                    .onSnapshot(MondayDoc => {
+                        console.log("currenct document data: " + MondayDoc.data());
+                        document.getElementById("quote-goes-here").innerHTML = MondayDoc.data().quote;
+                    })
+            } else if (j == 2) {
+                db.collection("quotes").doc("Tuesday")
+                    .onSnapshot(TuesdayDoc => {
+                        console.log("currenct document data: " + TuesdayDoc.data());
+                        document.getElementById("quote-goes-here").innerHTML = TuesdayDoc.data().quote;
+                    })
+            } else if (j == 3) {
+                db.collection("quotes").doc("Wednesday")
+                    .onSnapshot(WednesdayDoc => {
+                        console.log("currenct document data: " + WednesdayDoc.data());
+                        document.getElementById("quote-goes-here").innerHTML = WednesdayDoc.data().quote;
+                    })
+            } else if (j == 4) {
+                db.collection("quotes").doc("Thursday")
+                    .onSnapshot(ThursdayDoc => {
+                        console.log("currenct document data: " + ThursdayDoc.data());
+                        document.getElementById("quote-goes-here").innerHTML = ThursdayDoc.data().quote;
+                    })
+            } else if (j == 5) {
+                db.collection("quotes").doc("Friday")
+                    .onSnapshot(FridayDoc => {
+                        console.log("currenct document data: " + FridayDoc.data());
+                        document.getElementById("quote-goes-here").innerHTML = FridayDoc.data().quote;
+                    })
+            } else {
+                db.collection("quotes").doc("Saturday")
+                    .onSnapshot(SaturdayDoc => {
+                        console.log("currenct document data: " + SaturdayDoc.data());
+                        document.getElementById("quote-goes-here").innerHTML = SaturdayDoc.data().quote;
+                    })
+            }
+
 
         }
 
