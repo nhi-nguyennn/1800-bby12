@@ -34,11 +34,11 @@
 </head>
 
 <body>
-    <!-- Navbar -->
     <div class="navbar1">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
+                <a class="navbar-brand" href="../../index.html"><img src="../../img/logo-trans.png" alt="logo"
+                        style="max-width: 60px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -53,15 +53,18 @@
                             <a class="nav-link" href="../main/courses.html">Courses</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Assignments</a>
+                            <a class="nav-link" href="./assignment.html">Assignments</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../main/calendar.html">Calendar</a>
                         </li>
+                        <li class="nav-item">
+                            <a href="../profile/profile.html" class="nav-link">Profile</a>
+                        </li>
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="#" class="btn-top" onclick="logout()">Log out</a>
+                            <a href="../../index.html" class="btn-top">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -73,16 +76,17 @@
     <div class="navbar2">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
-                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas"
+                <a class="navbar-brand" href="../../index.html"><img src="../../img/logo-trans.png" alt="logo"
+                        style="max-width: 60px"></a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="offcanvasNavbar"
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../../img/logo-black.png"
-                                alt="logo" style="max-width: 60px">Skedule</h2>
+                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><a href="../../index.html"><img
+                                    src="../../img/logo-black.png" alt="logo" style="max-width: 60px"></a>Skedule</h2>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
@@ -92,20 +96,26 @@
                                 <a class="nav-link" href="../main/main.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Courses</a>
+                                <a class="nav-link" href="../main/courses.html">Courses</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Assignments</a>
+                                <a class="nav-link" href="./assignment.html">Assignments</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../main/calendar.html">Calendar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../profile/profile.html" class="nav-link">Profile</a>
                             </li>
                             <hr />
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About Us</a>
+                                <a class="nav-link" href="../main/about.html">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Feedback</a>
+                                <a class="nav-link" href="../main/feedback.html">Feedback</a>
                             </li>
                             <li class="nav-item login">
-                                <a class="nav-link" href="#" onclick="logout()">Log out</a>
+                                <a class="nav-link" href="../../index.html">Log out</a>
                             </li>
                         </ul>
                     </div>
@@ -119,12 +129,10 @@
         <div class="form-group" style="display:inline-table;">
             <label for="DUEDATE" style="font-size: 20px;"><b>Weeks shown: </b></label>
             <select class="form-control" id="DUEDATE" style="width:8vw;">
-                <option></option>
                 <option>1_week</option>
                 <option>2_weeks</option>
                 <option>3_weeks</option>
                 <option>4_weeks</option>
-
             </select>
 
         </div>
@@ -143,7 +151,7 @@
             <div id="Assignments-go-here" class="row row-cols-auto">
                 <template id="CardTemplate">
                     <div class="card py-2 mx-2" style="width: 18rem;">
-                        <img class="card-image" src="assignment.jpg" class="card-img-top" alt="...">
+                        <img class="card-image" src="../../img/assignment.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text1"></p>
