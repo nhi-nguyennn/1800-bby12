@@ -153,6 +153,9 @@ thead {
     width: 80%;
 }
 
+#reviewMessage {
+    text-align: center;
+}
 
 
 @media(max-width: 1000px) {
