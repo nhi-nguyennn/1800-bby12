@@ -2,180 +2,267 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Skedule</title>
+	<title>Courses - Skedule</title>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  <!-- Optional styles and scripts of your own -->
-  <link rel="stylesheet" href="../../styles/my_style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
-    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link href="../../img/logo-black.png" rel="icon" type="image/png" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+		integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!-- Firebase 8 CDNs-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+
+	<link href="../../img/logo-black.png" rel="icon" type="image/png" />
+
+	<!-- Link to the api keys for your firebase project -->
+	<script src="../../scripts/firebaseAPI.js"></script>
+	<!-- Optional styles and scripts of your own -->
+	<link rel="stylesheet" href="../../styles/my_style.css">
+
 </head>
 
 <body>
-  <!-- Navbar -->
-  <div class="navbar1">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="main.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="courses.html">Courses</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="calendar.html">Calendar</a>
-            </li>
-          </ul>
-          <ul class="right-menu">
-            <li class="nav-item login">
-              <a href="../../index.html" class="btn-top" onclick="logout()">Log out</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
+	<!-- Navbar -->
+	<div class="navbar1">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../../index.html"><img src="../../img/logo-trans.png" alt="logo"
+						style="max-width: 60px"></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" href="main.html">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./courses.html">Courses</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="../assignment/assignment.html">Assignments</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./calendar.html">Calendar</a>
+						</li>
+						<li class="nav-item">
+							<a href="../profile/profile.html" class="nav-link">Profile</a>
+						</li>
+					</ul>
+					<ul class="right-menu">
+						<li class="nav-item login">
+							<a href="../../index.html" class="btn-top">Log out</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
 
+	<!-- Navbar2 - Offcanvas -->
+	<div class="navbar2">
+		<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="../../index.html"><img src="../../img/logo-trans.png" alt="logo"
+						style="max-width: 60px"></a>
+				<button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
+					data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+					aria-labelledby="offcanvasNavbarLabel">
+					<div class="offcanvas-header">
+						<h2 class="offcanvas-title" id="offcanvasNavbarLabel"><a href="../../index.html"><img
+									src="../../img/logo-black.png" alt="logo" style="max-width: 60px"></a>Skedule</h2>
+						<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+							aria-label="Close"></button>
+					</div>
+					<div class="offcanvas-body">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+							<li class="nav-item">
+								<a class="nav-link" href="main.html">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./courses.html">Courses</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="../assignment/assignment.html">Assignments</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./calendar.html">Calendar</a>
+							</li>
+							<li class="nav-item">
+								<a href="../profile/profile.html" class="nav-link">Profile</a>
+							</li>
+							<hr />
+							<li class="nav-item">
+								<a class="nav-link" href="./about.html">About Us</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./feedback.html">Feedback</a>
+							</li>
+							<li class="nav-item login">
+								<a class="nav-link" href="../../index.html">Log out</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
 
+	<!-- Templates for general use, not displayed -->
+	<template id="CardTemplate">
+		<div class="card py-2 mx-2" style="width: 18rem;">
+			<img class="card-image" src=" ..." class="card-img-top" alt="...">
+			<div class="card-body">
+				<h6 class="card-title">Card title</h6>
+				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+					card's content.</p>
+				<a href="#" class="btn btn-primary card-href">Get Details</a>
+			</div>
+		</div>
+	</template>
 
-  <h1 class="title">My Courses</h1>
+	<div class="container">
+		<h2>Ongoing Courses</h2>
+		<!-- Here is container for cards  -->
+		<div class="container">
+			<div id="setC-go-here" class="row row-cols-auto">
 
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Course Name</th>
-        <th scope="col">Course Number</th>
-        <th scope="col">Location</th>
-        <th scope="col">Instructor(s)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Business Communication 1</th>
-        <td>COMM-1116</td>
-        <td>SW03 2745</td>
-        <td>Thorsten Ewald</td>
-      </tr>
-      <tr>
-        <th scope="row">Biz Analysis and System Design</th>
-        <td>COMP 1712</td>
-        <td>SE12 322</td>
-        <td>Maryam Khezrzadeh</td>
-      </tr>
-      <tr>
-        <th scope="row">Web Development 1</th>
-        <td>COMP 1537</td>
-        <td>Online</td>
-        <td>Arron Ferguson</td>
-      </tr>
-      <tr>
-        <th scope="row">Applied Mathematics</th>
-        <td>COMP 1113</td>
-        <td>SW03 2620</td>
-        <td>Paul Rozman</td>
-      </tr>
-      <tr>
-        <th scope="row">Projects 1</th>
-        <td>COMP 1800</td>
-        <td>Online</td>
-        <td>Carly Y. Orr</td>
-      </tr>
-      <tr>
-        <th scope="row">Programming Methods</th>
-        <td>COMP 1510</td>
-        <td>SE12 321</td>
-        <td>Bruce D. Link</td>
-      </tr>
-      <tr>
-        <th scope="row">CST Program Fundamentals </th>
-        <td>COMP 1100</td>
-        <td>Online</td>
-        <td>Donna E. Turner</td>
-      </tr>
-    </tbody>
-  </table>
+			</div>
+		</div>
+	</div>
 
-  <!-- Footer -->
-  <div class="container bac">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <p class="col-md-4 mb-0 text-muted">&copy; 2021 BBY12, Inc</p>
+	<!-- <h1 class="title">My Courses</h1>
 
-      <a href="/"
-        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <img src="../../img/logo-black.png" alt="logo" style="max-width: 60px">
-      </a>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th scope="col">Course Name</th>
+				<th scope="col">Course Number</th>
+				<th scope="col">Location</th>
+				<th scope="col">Instructor(s)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th scope="row">Business Communication 1</th>
+				<td>COMM-1116</td>
+				<td>SW03 2745</td>
+				<td>Thorsten Ewald</td>
+			</tr>
+			<tr>
+				<th scope="row">Biz Analysis and System Design</th>
+				<td>COMP 1712</td>
+				<td>SE12 322</td>
+				<td>Maryam Khezrzadeh</td>
+			</tr>
+			<tr>
+				<th scope="row">Web Development 1</th>
+				<td>COMP 1537</td>
+				<td>Online</td>
+				<td>Arron Ferguson</td>
+			</tr>
+			<tr>
+				<th scope="row">Applied Mathematics</th>
+				<td>COMP 1113</td>
+				<td>SW03 2620</td>
+				<td>Paul Rozman</td>
+			</tr>
+			<tr>
+				<th scope="row">Projects 1</th>
+				<td>COMP 1800</td>
+				<td>Online</td>
+				<td>Carly Y. Orr</td>
+			</tr>
+			<tr>
+				<th scope="row">Programming Methods</th>
+				<td>COMP 1510</td>
+				<td>SE12 321</td>
+				<td>Bruce D. Link</td>
+			</tr>
+			<tr>
+				<th scope="row">CST Program Fundamentals </th>
+				<td>COMP 1100</td>
+				<td>Online</td>
+				<td>Donna E. Turner</td>
+			</tr>
+		</tbody>
+	</table> -->
 
-      <ul class="nav col-md-4 justify-content-end">
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About us</a></li>
-        <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
-      </ul>
-    </footer>
-  </div>
+	<!-- Footer -->
+	<div class="container bac">
+		<footer>
+			<hr />
+			<img src="../../img/logo-black.png" alt="logo" style="max-width: 60px">
+			<p class="text-muted">&copy; 2021 BBY12, Inc</p>
+		</footer>
+	</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
 
-  </script>
+		</script>
 
-  <script>
-    function logout() {
-      console.log("logging out user");
-      firebase.auth().signOut().then(() => {
-        // Sign-out successful.
-        window.location.href = "../../index.html";
-      }).catch((error) => {
-        // An error happened.
-      });
-    }
+	<script>
+		function logout() {
+			console.log("logging out user");
+			firebase.auth().signOut().then(() => {
+				// Sign-out successful.
+				window.location.href = "../../index.html";
+			}).catch((error) => {
+				// An error happened.
+			});
+		}
 
-    function read_display_Quote() {
-      db.collection("quotes").doc("Friday")
-        .onSnapshot(FridayDoc => {
-          console.log("currenct document data: " + FridayDoc.data());
-          document.getElementById("quote-goes-here").innerHTML = FridayDoc.data().quote;
-        })
+		function displayCards(collection) {
+			let CardTemplate = document.getElementById("CardTemplate");
 
-    }
+			db.collection(collection).get()
+				.then(snap => {
+					var i = 1;
 
-    read_display_Quote() // function is now called
+					snap.forEach(doc => {    //iterate thru each doc
+						const { name, courseID } = doc.data();
+						let newcard = CardTemplate.content.cloneNode(true);
 
-    // I will try to figure out how to implement each day of the week to auto display its own quote.
-  </script>
+						//update title and text and image
+						newcard.querySelector('.card-title').innerHTML = name;
+						newcard.querySelector('.card-text').innerHTML = courseID;
+						newcard.querySelector('.card-image').src = "../../img/course" + i + ".jpg";  //hikes.jpg
 
-  <script>
-    function displayCourse() {
-      firebase.auth().onAuthStateChanged(user => {
-        // If user in set C
-        if (setC) {
-          cdb.collection("setC").doc("course1")
-            .onSnapshot(Course1Doc => {
-              document.getElementById("course1").innerHTML = Course1Doc.data().name;
-            });
-        }
-      })
-    }
-  </script>
+						newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc.id;    //firestore doc ID
+
+						//give unique ids to all elements for future use
+						newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
+						newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+						newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
+
+						//attach to gallery "hikes-go-here" "heros-go-here" "countries-go-here"
+						document.getElementById(collection + "-go-here").appendChild(newcard);
+						i++;
+					})
+				})
+		}
+
+		displayCards("setC");
+	</script>
 </body>
 
 </html>
