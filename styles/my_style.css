@@ -161,7 +161,6 @@ thead {
     text-align: center;
 }
 
-
 @media(max-width: 1000px) {
     .navbar1 {
         display: none;

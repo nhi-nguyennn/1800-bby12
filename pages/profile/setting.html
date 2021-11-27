@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Nhi Nguyen, Ming Li, Dalibor Cavlovic">
 
-    <title>User Settings - Skedule</title>
+    <title>Profile - Skedule</title>
 
     <!-- Bootstrap FirebaseUI CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -65,7 +65,7 @@
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
-                            <a href="#" class="btn-top" onclick="logout()">Log out</a>
+                            <a href="../../index.html" class="btn-top">Log out</a>
                         </li>
                     </ul>
                 </div>
@@ -127,7 +127,7 @@
 
     <div class="container">
         <br />
-        <h2>Settings</h2>
+        <h2>User Profile </h2>
         <form>
             <fieldset class="mb-3" id="personalInfoFields" disabled>
                 <div class="form-group">
@@ -152,7 +152,14 @@
                 <br />
                 <div class="form-group">
                     <label>Set</label>
-                    <input type="text" class="form-control" id="set_id">
+                    <select class="form-control" id="set_id">
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                        <option>D</option>
+                        <option>E</option>
+                        <option>F</option>
+                    </select>
                 </div>
                 <br />
                 <div class="form-group">
@@ -218,14 +225,15 @@
                             var userTerm = userDoc.data().Term;
                             var userSet = userDoc.data().Set;
                             var userCampus = userDoc.data().Campus;
-                            console.log(userSet);
 
-                            document.getElementById("set_id").value = userSet;
                             document.getElementById("pro_id").value = "CST";
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
                                 document.getElementById("nameInput").value = userName;
+                            }
+                            if (userSet != null) {
+                                document.getElementById("set_id").value = userSet;
                             }
                             if (userTerm != null) {
                                 document.getElementById("term_id").value = userTerm;
@@ -246,8 +254,8 @@
 
         function editUserInfo() {
             //Enable the form fields
-            document.getElementById('set_id').disabled = true;
             document.getElementById('personalInfoFields').disabled = false;
+
         }
 
         function saveUserInfo() {
