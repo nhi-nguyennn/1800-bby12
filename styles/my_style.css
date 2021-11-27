@@ -157,8 +157,6 @@ thead {
     width: 80%;
 }
 
-
-
 @media(max-width: 1000px) {
     .navbar1 {
         display: none;
