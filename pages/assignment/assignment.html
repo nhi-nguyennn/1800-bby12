@@ -251,7 +251,7 @@
                             console.log("alert");
                             alert("Hi! Guys, you will have Assignment/Quiz today!");
                         }
-                        if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length)) || (
+                        if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length)&&(DUEDATE>=currentdate)) || (
                                 currentmonth - Duemonth == -1) && ((30 - currentdate + DUEDATE) <=
                                 Length)) && userset == set) {
                             //update title and text and image
@@ -296,7 +296,7 @@
             }
             localStorage.setItem("Para", length1);
             console.log("length1:" + length1)
-            location.replace("http://127.0.0.1:5502/pages/assignment/assignment.html")
+            location.replace("assignment.html")
 
         }
         //
