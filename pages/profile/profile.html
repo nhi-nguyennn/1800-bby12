@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Nhi Nguyen, Ming Li, Dalibor Cavlovic">
 
-    <title>Profile - Skedule</title>
+    <title>User Settings - Skedule</title>
 
     <!-- Bootstrap FirebaseUI CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -127,7 +127,7 @@
 
     <div class="container">
         <br />
-        <h2>User Profile </h2>
+        <h2>Settings</h2>
         <form>
             <fieldset class="mb-3" id="personalInfoFields" disabled>
                 <div class="form-group">
@@ -152,14 +152,7 @@
                 <br />
                 <div class="form-group">
                     <label>Set</label>
-                    <select class="form-control" id="set_id">
-                        <option>A</option>
-                        <option>B</option>
-                        <option>C</option>
-                        <option>D</option>
-                        <option>E</option>
-                        <option>F</option>
-                    </select>
+                    <input type="text" class="form-control" id="set_id">
                 </div>
                 <br />
                 <div class="form-group">
@@ -221,19 +214,18 @@
                         .then(userDoc => {
                             //get the data fields of the user
                             var userName = userDoc.data().name;
-                            var userProgram = userDoc.data().program;
-                            var userTerm = userDoc.data().term;
-                            var userSet = userDoc.data().set;
-                            var userCampus = userDoc.data().campus;
+                            var userProgram = userDoc.data().Program;
+                            var userTerm = userDoc.data().Term;
+                            var userSet = userDoc.data().Set;
+                            var userCampus = userDoc.data().Campus;
+                            console.log(userSet);
 
+                            document.getElementById("set_id").value = userSet;
                             document.getElementById("pro_id").value = "CST";
 
                             //if the data fields are not empty, then write them in to the form.
                             if (userName != null) {
                                 document.getElementById("nameInput").value = userName;
-                            }
-                            if (userSet != null) {
-                                document.getElementById("set_id").value = userSet;
                             }
                             if (userTerm != null) {
                                 document.getElementById("term_id").value = userTerm;
@@ -254,6 +246,7 @@
 
         function editUserInfo() {
             //Enable the form fields
+            document.getElementById('set_id').disabled = true;
             document.getElementById('personalInfoFields').disabled = false;
         }
 
