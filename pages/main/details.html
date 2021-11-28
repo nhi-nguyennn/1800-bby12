@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Details</title>
+    <!-- Firebase 8 CDNs-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+
+
+    <link href="../../img/logo-black.png" rel="icon" type="image/png" />
+
+    <!-- Link to the api keys for your firebase project -->
+    <script src="../../scripts/firebaseAPI.js"></script>
+    <!-- Optional styles and scripts of your own -->
+    <link rel="stylesheet" href="../../styles/my_style.css">
+</head>
+
+<body>
+    <h1 id="courseName">Course name goes here</h1>
+    <p id="courseId">ID goes here</p>
+    <p id="instructor">Instructor's name goes here</p>
+    <p id="location">Location goes here</p>
+
+    <script>
+        function showDetails() {
+            // create a URL object
+            let params = new URL(window.location.href);
+            let id = params.searchParams.get("id");                   //parse "id"
+            let collection = params.searchParams.get("collection");   //parse "collection"
+            db.collection(collection).get()
+                .then(courseInfo => {
+                    courseInfo.forEach(doc => {
+                        const { name, courseID, Location, Instructor } = doc.data();
+
+                        document.getElementById("courseName").innerHTML = name;
+                        document.getElementById("courseId").innerHTML = "Course ID: " + courseID;
+                        document.getElementById("instructor").innerHTML = "Instructor: " + Instructor;
+                        document.getElementById("location").innerHTML = "Location: " + Location;
+                    })
+                })
+        }
+        showDetails();
+    </script>
+</body>
+
+</html>
