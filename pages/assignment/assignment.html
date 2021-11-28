@@ -211,7 +211,7 @@
                             //get user Email
                             var userEmail = userDoc.data().email;
                             var username = userDoc.data().name;
-                            var userset1 = userDoc.data().SET;
+                            var userset1 = userDoc.data().Set;
                             localStorage.setItem("para1", userset1)
                             console.log("hello");
                             console.log("userset1:" + userset1);
@@ -241,7 +241,7 @@
                     snap.forEach(doc => { //iterate thru each doc
                         var ASSIGNNAME = doc.data().Name;
                         var ASSIGNTYPE = doc.data().Type;
-                        var set = doc.data().Set;
+                        var set = doc.data().Setinfo;
                         var str1 = doc.data().Due_date;
                         var d1 = new Date(str1);
                         var DUEDATE = d1.getDate();
@@ -259,7 +259,7 @@
                             console.log("alert");
                             alert("Hi! Guys, you will have Assignment/Quiz today!");
                         }
-                        if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length)&&(DUEDATE>=currentdate)) || (
+                        if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length)&&(DUEDATE+1>=currentdate)) || (
                                 currentmonth - Duemonth == -1) && ((30 - currentdate + DUEDATE) <=
                                 Length)) && userset == set) {
                             //update title and text and image
