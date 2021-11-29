@@ -171,6 +171,11 @@ thead {
     margin-bottom: 0;
 }
 
+.about {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 @media(max-width: 1000px) {
     .navbar1 {
         display: none;
