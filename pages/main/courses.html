@@ -134,7 +134,10 @@
 				<h6 class="card-title">Card title</h6>
 				<p class="card-text">Some quick example text to build on the card title and make up the bulk of the
 					card's content.</p>
-				<a href="#" class="btn btn-primary card-href">Get Details</a>
+				<p class="card-text1">Some quick example text to build on the card title and make up the bulk of the
+					card's content.</p>
+				<p class="card-text2">Some quick example text to build on the card title and make up the bulk of the
+					card's content.</p>
 			</div>
 		</div>
 	</template>
@@ -239,19 +242,22 @@
 					var i = 1;
 
 					snap.forEach(doc => {    //iterate thru each doc
-						const { name, courseID } = doc.data();
+						const { name, courseID, Location, Instructor} = doc.data();
 						let newcard = CardTemplate.content.cloneNode(true);
 
 						//update title and text and image
 						newcard.querySelector('.card-title').innerHTML = name;
 						newcard.querySelector('.card-text').innerHTML = courseID;
+						newcard.querySelector('.card-text1').innerHTML = Location;
+						newcard.querySelector('.card-text2').innerHTML = Instructor;
+
 						newcard.querySelector('.card-image').src = "../../img/course" + i + ".jpg";  //hikes.jpg
 
-						newcard.querySelector('.card-href').href = "details.html?collection=" + collection + "?id=" + doc.id;    //firestore doc ID
 
 						//give unique ids to all elements for future use
 						newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
 						newcard.querySelector('.card-text').setAttribute("id", "ctext" + i);
+
 						newcard.querySelector('.card-image').setAttribute("id", "cimage" + i);
 
 						//attach to gallery "hikes-go-here" "heros-go-here" "countries-go-here"
