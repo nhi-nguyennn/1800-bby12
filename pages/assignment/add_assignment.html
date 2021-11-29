@@ -88,45 +88,46 @@
     <div class="navbar2">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand"><img src="../../img/logo-trans.png" alt="logo" style="max-width: 60px"></a>
-                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas"
+                <a class="navbar-brand" href="../../index.html"><img src="../../img/logo-trans.png" alt="logo"
+                        style="max-width: 60px"></a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="offcanvas offcanvas-end bg-light" tabindex="-1" id="offcanvasNavbar"
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
-                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="../../img/logo-black.png"
-                                alt="logo" style="max-width: 60px">Skedule</h2>
+                        <h2 class="offcanvas-title" id="offcanvasNavbarLabel"><a href="../../index.html"><img
+                                    src="../../img/logo-black.png" alt="logo" style="max-width: 60px"></a>Skedule</h2>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link" href="../main/main.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Courses</a>
+                                <a class="nav-link" href="../main/courses.html">Courses</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Assignments</a>
+                                <a class="nav-link" href="./assignment.html">Assignments</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Calendar</a>
+                                <a class="nav-link" href="../main/calendar.html">Calendar</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Profile</a>
+                                <a href="../profile/profile.html" class="nav-link">Profile</a>
                             </li>
                             <hr />
                             <li class="nav-item">
-                                <a class="nav-link" href="#">About Us</a>
+                                <a class="nav-link" href="../main/about.html">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Feedback</a>
+                                <a class="nav-link" href="../main/feedback.html">Feedback</a>
                             </li>
                             <li class="nav-item login">
-                                <a class="nav-link" href="#" onclick="logout()">Log out</a>
+                                <a class="nav-link" href="../../index.html">Log out</a>
                             </li>
                         </ul>
                     </div>
@@ -139,7 +140,7 @@
     <header>
         <div class="container">
             <div id="item1">
-                <h2>Please input new assignment</h2>
+                <h2>Add new assignment</h2>
 
                 <form>
                     <fieldset class="mb-3" id="personalInfoFields" disabled>
