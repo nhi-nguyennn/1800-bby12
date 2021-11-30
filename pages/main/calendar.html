@@ -290,7 +290,6 @@
         <li><span id="d28">28</span></li>
         <li><span id="d29">29</span></li>
         <li><span id="d30">30</span></li>
-        <li><span id="d31">31</span></li>
     </ul>
     <ul class="days" id="x12">
         <li><span></span></li>
@@ -442,8 +441,8 @@
         <li><span ></span></li>
         <li><span id="d1-7">1</span></li>
         <li><span id="d2-7">2</span></li>
-        <li><span id="d6-8">3</span></li>
-        <li><span id="d7-8">4</span></li>
+        <li><span id="d6-7">3</span></li>
+        <li><span id="d7-7">4</span></li>
         <li><span id="d8-8">5</span></li>
         <li><span id="d9-8">6</span></li>
         <li><span id="d10-8">7</span></li>
@@ -532,7 +531,7 @@
         var currentmonth = dHighlight.getMonth();
         var num = "d" + currentTime;
 
-        document.getElementById(num).style.backgroundColor ="blue";
+        document.getElementById(num).style.backgroundColor ="#ffd1dc";
 
         if (currentmonth == 10) {
             document.getElementById("M").innerHTML = "November";
@@ -562,7 +561,7 @@
             currentmonth += 1;
             console.log(currentmonth);
             num = "d" + currentTime;
-            document.getElementById(num).style.backgroundColor = "blue";
+            document.getElementById(num).style.backgroundColor = "#ffd1dc";
 
 
 
@@ -632,7 +631,7 @@
             currentmonth -= 1;
             console.log(currentmonth);
             num = "d" + currentTime;
-            document.getElementById(num).style.backgroundColor = "blue";
+            document.getElementById(num).style.backgroundColor = "#ffd1dc";
 
             if (currentmonth == 5) {
                 document.getElementById("M").innerHTML = "June";
