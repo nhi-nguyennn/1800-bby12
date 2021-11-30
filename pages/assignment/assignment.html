@@ -138,13 +138,13 @@
 
     <h1 class="title">Upcoming Assignments</h1>
     <form>
-        <div class="form-group" style="display:inline-table;">
-            <label for="DUEDATE" style="font-size: 20px;"><b>Weeks shown: </b></label>
-            <select class="form-control" id="DUEDATE" style="width:8vw;">
-                <option>1_week</option>
-                <option>2_weeks</option>
-                <option>3_weeks</option>
-                <option>4_weeks</option>
+        <div class="form-group filter" style="display:inline-table;">
+            <label for="DUEDATE" style="font-size: 20px;"><b>Week(s) shown: </b></label>
+            <select class="form-control" id="DUEDATE">
+                <option>1 week</option>
+                <option>2 weeks</option>
+                <option>3 weeks</option>
+                <option>4 weeks</option>
             </select>
 
         </div>
@@ -305,13 +305,13 @@
 
             let dueday = document.getElementById("DUEDATE").value;
             var length1 = 7;
-            if (dueday == "2_weeks") {
+            if (dueday == "2 weeks") {
                 length1 = 14;
             }
-            if (dueday == "3_weeks") {
+            if (dueday == "3 weeks") {
                 length1 = 21;
             }
-            if (dueday == "4_weeks") {
+            if (dueday == "4 weeks") {
                 length1 = 28;
             }
             localStorage.setItem("Para", length1);

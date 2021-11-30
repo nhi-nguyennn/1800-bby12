@@ -176,6 +176,12 @@ thead {
     margin-bottom: 50px;
 }
 
+.filter {
+    margin-left: 50px;
+    margin-bottom: 40px;
+}
+
+
 @media(max-width: 1000px) {
     .navbar1 {
         display: none;
