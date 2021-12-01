@@ -24,7 +24,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
@@ -37,7 +37,7 @@
     <div class="navbar1">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../../index.html"><img src="../../img/logo-trans.png" alt="logo"
+                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo"
                         style="max-width: 60px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -61,6 +61,16 @@
                         <li class="nav-item">
                             <a href="../profile/profile.html" class="nav-link">Profile</a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="../main/about.html">About Us</a></li>
+                                <li><a class="dropdown-item" href="../main/feedback.html">Feedback</a></li>
+                            </ul>
+                        </li>
                     </ul>
                     <ul class="right-menu">
                         <li class="nav-item login">
@@ -76,7 +86,7 @@
     <div class="navbar2">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../../index.html"><img src="../../img/logo-trans.png" alt="logo"
+                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo"
                         style="max-width: 60px"></a>
                 <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -107,7 +117,9 @@
                             <li class="nav-item">
                                 <a href="../profile/profile.html" class="nav-link">Profile</a>
                             </li>
-                            <hr />
+                            <li>
+                                <hr />
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../main/about.html">About Us</a>
                             </li>
@@ -126,13 +138,13 @@
 
     <h1 class="title">Upcoming Assignments</h1>
     <form>
-        <div class="form-group" style="display:inline-table;">
-            <label for="DUEDATE" style="font-size: 20px;"><b>Weeks shown: </b></label>
-            <select class="form-control" id="DUEDATE" style="width:8vw;">
-                <option>1_week</option>
-                <option>2_weeks</option>
-                <option>3_weeks</option>
-                <option>4_weeks</option>
+        <div class="form-group filter" style="display:inline-table;">
+            <label for="DUEDATE" style="font-size: 20px;"><b>Week(s) shown: </b></label>
+            <select class="form-control" id="DUEDATE">
+                <option>1 week</option>
+                <option>2 weeks</option>
+                <option>3 weeks</option>
+                <option>4 weeks</option>
             </select>
 
         </div>
@@ -211,7 +223,7 @@
                             //get user Email
                             var userEmail = userDoc.data().email;
                             var username = userDoc.data().name;
-                            var userset1 = userDoc.data().SET;
+                            var userset1 = userDoc.data().Set;
                             localStorage.setItem("para1", userset1)
                             console.log("hello");
                             console.log("userset1:" + userset1);
@@ -241,7 +253,7 @@
                     snap.forEach(doc => { //iterate thru each doc
                         var ASSIGNNAME = doc.data().Name;
                         var ASSIGNTYPE = doc.data().Type;
-                        var set = doc.data().Set;
+                        var set = doc.data().Setinfo;
                         var str1 = doc.data().Due_date;
                         var d1 = new Date(str1);
                         var DUEDATE = d1.getDate();
@@ -257,14 +269,13 @@
                             console.log(currentdate);
 
                             console.log("alert");
-                            alert("Hi! Guys, you will have Assignment/Quiz today!");
+                            alert("Hi, you will have assignment(s)/quiz(zes) today!");
                         }
-                        if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length)&&(DUEDATE>=currentdate)) || (
-                                currentmonth - Duemonth == -1) && ((30 - currentdate + DUEDATE) <=
+                        if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length) && (DUEDATE + 1 >= currentdate)) || (
+                            currentmonth - Duemonth == -1) && ((30 - currentdate + DUEDATE) <=
                                 Length)) && userset == set) {
                             //update title and text and image
-                            newcard.querySelector('.card-title').innerHTML = "Assignment Name: " +
-                                ASSIGNNAME;
+                            newcard.querySelector('.card-title').innerHTML = ASSIGNNAME;
                             newcard.querySelector('.card-text1').innerHTML = "Assignment Type: " +
                                 ASSIGNTYPE;
                             newcard.querySelector('.card-text2').innerHTML = "Course Number: " + PROID;
@@ -293,13 +304,13 @@
 
             let dueday = document.getElementById("DUEDATE").value;
             var length1 = 7;
-            if (dueday == "2_weeks") {
+            if (dueday == "2 weeks") {
                 length1 = 14;
             }
-            if (dueday == "3_weeks") {
+            if (dueday == "3 weeks") {
                 length1 = 21;
             }
-            if (dueday == "4_weeks") {
+            if (dueday == "4 weeks") {
                 length1 = 28;
             }
             localStorage.setItem("Para", length1);
@@ -307,11 +318,13 @@
             location.replace("assignment.html")
 
         }
-        //
+
+
     </script>
 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
 
 </body>
 

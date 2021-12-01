@@ -161,6 +161,27 @@ thead {
     text-align: center;
 }
 
+.card-body h6 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.card-body p {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.about {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.filter {
+    margin-left: 50px;
+    margin-bottom: 40px;
+}
+
+
 @media(max-width: 1000px) {
     .navbar1 {
         display: none;

@@ -137,7 +137,7 @@
     <div class="navbar1">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../../index.html"><img src="../../img/logo-trans.png" alt="logo"
+                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo"
                         style="max-width: 60px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -147,19 +147,29 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="main.html">Home</a>
+                            <a class="nav-link" href="../main/main.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./courses.html">Courses</a>
+                            <a class="nav-link" href="../main/courses.html">Courses</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./calendar.html">Calendar</a>
+                            <a class="nav-link" href="../main/calendar.html">Calendar</a>
                         </li>
                         <li class="nav-item">
                             <a href="../profile/profile.html" class="nav-link">Profile</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                More
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="../main/about.html">About Us</a></li>
+                                <li><a class="dropdown-item" href="../main/feedback.html">Feedback</a></li>
+                            </ul>
                         </li>
                     </ul>
                     <ul class="right-menu">
@@ -176,7 +186,7 @@
     <div class="navbar2">
         <nav class="navbar navbar-expand-lg navbar-light bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="../../index.html"><img src="../../img/logo-trans.png" alt="logo"
+                <a class="navbar-brand" href="../main/main.html"><img src="../../img/logo-trans.png" alt="logo"
                         style="max-width: 60px"></a>
                 <button class="navbar-toggler bg-light" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -193,26 +203,28 @@
                     <div class="offcanvas-body">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                             <li class="nav-item">
-                                <a class="nav-link" href="main.html">Home</a>
+                                <a class="nav-link" href="../main/main.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./courses.html">Courses</a>
+                                <a class="nav-link" href="../main/courses.html">Courses</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../assignment/assignment.html">Assignments</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./calendar.html">Calendar</a>
+                                <a class="nav-link" href="../main/calendar.html">Calendar</a>
                             </li>
                             <li class="nav-item">
                                 <a href="../profile/profile.html" class="nav-link">Profile</a>
                             </li>
-                            <hr />
-                            <li class="nav-item">
-                                <a class="nav-link" href="./about.html">About Us</a>
+                            <li>
+                                <hr />
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./feedback.html">Feedback</a>
+                                <a class="nav-link" href="../main/about.html">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../main/feedback.html">Feedback</a>
                             </li>
                             <li class="nav-item login">
                                 <a class="nav-link" href="../../index.html">Log out</a>
@@ -278,7 +290,6 @@
         <li><span id="d28">28</span></li>
         <li><span id="d29">29</span></li>
         <li><span id="d30">30</span></li>
-        <li><span id="d31">31</span></li>
     </ul>
     <ul class="days" id="x12">
         <li><span></span></li>
@@ -430,8 +441,8 @@
         <li><span ></span></li>
         <li><span id="d1-7">1</span></li>
         <li><span id="d2-7">2</span></li>
-        <li><span id="d6-8">3</span></li>
-        <li><span id="d7-8">4</span></li>
+        <li><span id="d6-7">3</span></li>
+        <li><span id="d7-7">4</span></li>
         <li><span id="d8-8">5</span></li>
         <li><span id="d9-8">6</span></li>
         <li><span id="d10-8">7</span></li>
@@ -520,7 +531,7 @@
         var currentmonth = dHighlight.getMonth();
         var num = "d" + currentTime;
 
-        document.getElementById(num).style.backgroundColor = "#F9A593";
+        document.getElementById(num).style.backgroundColor ="#ffd1dc";
 
         if (currentmonth == 10) {
             document.getElementById("M").innerHTML = "November";
@@ -550,7 +561,7 @@
             currentmonth += 1;
             console.log(currentmonth);
             num = "d" + currentTime;
-            document.getElementById(num).style.backgroundColor = "#F9A593";
+            document.getElementById(num).style.backgroundColor = "#ffd1dc";
 
 
 
@@ -620,7 +631,7 @@
             currentmonth -= 1;
             console.log(currentmonth);
             num = "d" + currentTime;
-            document.getElementById(num).style.backgroundColor = "#F9A593";
+            document.getElementById(num).style.backgroundColor = "#ffd1dc";
 
             if (currentmonth == 5) {
                 document.getElementById("M").innerHTML = "June";
