@@ -72,6 +72,13 @@ nav a {
     float: right;
 }
 
+#item1 {
+    display: grid;
+    grid-template-columns: 65vw;
+    grid-template-rows: 8vh;
+    justify-content: center;
+}
+
 /* Showcase */
 .showcase {
     position: relative;
