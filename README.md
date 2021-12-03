@@ -112,6 +112,5 @@ https://bby12-ccaaa.web.app/
 
 ## Acknowledgements 
 * <a href="https://firebase.google.com/">Google Firebase</a>
-* <a href="https://stock.adobe.com/images">Adobe Stock Images</a>
 * <a href="https://getbootstrap.com/">Bootstrap</a>
 * <a href="https://coolors.co">Coolors</a>
