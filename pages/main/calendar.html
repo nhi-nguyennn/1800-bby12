@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Calendar - Skedule</title>
+    <link href="../../img/logo-black.png" rel="icon" type="image/png" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,7 +19,6 @@
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link href="../../img/logo-black.png" rel="icon" type="image/png" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
         * {
@@ -365,7 +365,7 @@
         <li><span id="d31-10">31</span></li>
     </ul>
     <ul class="days" id="x9">
-        
+
         <li><span></span></li>
         <li><span></span></li>
         <li><span id="d1-9">1</span></li>
@@ -398,10 +398,10 @@
         <li><span id="d28-9">28</span></li>
         <li><span id="d29-9">29</span></li>
         <li><span id="d30-9">30</span></li>
-        
+
     </ul>
     <ul class="days" id="x8">
-        
+
         <li><span id="d1-8">1</span></li>
         <li><span id="d2-8">2</span></li>
         <li><span id="d3-8">3</span></li>
@@ -435,10 +435,10 @@
         <li><span id="d31-8">31</span></li>
     </ul>
     <ul class="days" id="x7">
-        
-        <li><span ></span></li>
-        <li><span ></span></li>
-        <li><span ></span></li>
+
+        <li><span></span></li>
+        <li><span></span></li>
+        <li><span></span></li>
         <li><span id="d1-7">1</span></li>
         <li><span id="d2-7">2</span></li>
         <li><span id="d6-7">3</span></li>
@@ -473,7 +473,7 @@
 
     </ul>
     <ul class="days" id="x6">
-        
+
         <li><span id="d1-8"></span></li>
         <li><span id="d2-8">1</span></li>
         <li><span id="d3-8">2</span></li>
@@ -515,6 +515,9 @@
         </footer>
     </div>
 
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Our own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
     <script>
         function logout() {
             console.log("logging out user");
@@ -529,9 +532,9 @@
         var currentTime = dHighlight.getDate();
 
         var currentmonth = dHighlight.getMonth();
-        var num = "d" + currentTime;
+        var num = "d" + currentTime + "-12";
 
-        document.getElementById(num).style.backgroundColor ="#ffd1dc";
+        document.getElementById(num).style.backgroundColor = "#ffd1dc";
 
         if (currentmonth == 10) {
             document.getElementById("M").innerHTML = "November";
@@ -560,7 +563,7 @@
         function myfunction() {
             currentmonth += 1;
             console.log(currentmonth);
-            num = "d" + currentTime;
+            num = "d" + currentTime + "-12";
             document.getElementById(num).style.backgroundColor = "#ffd1dc";
 
 
@@ -630,7 +633,7 @@
         function myfunction1() {
             currentmonth -= 1;
             console.log(currentmonth);
-            num = "d" + currentTime;
+            num = "d" + currentTime + "-12";
             document.getElementById(num).style.backgroundColor = "#ffd1dc";
 
             if (currentmonth == 5) {

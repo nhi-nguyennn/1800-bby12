@@ -34,6 +34,10 @@
 </head>
 
 <body>
+    <!-------------------------------------->
+    <!-- The following is HTML for layout -->
+    <!-------------------------------------->
+    <!-- Navbar1 -->
     <div class="navbar1">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -169,7 +173,6 @@
                             <p class="card-text1"></p>
                             <p class="card-text2"></p>
                             <p class="card-text3"></p>
-
                         </div>
                     </div>
                 </template>
@@ -183,23 +186,17 @@
     </div>
 
     <!-- Footer -->
-    <div class="container bac">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <p class="col-md-4 mb-0 text-muted">&copy; 2021 BBY12, Inc</p>
+	<div class="container bac">
+		<footer>
+			<hr />
+			<img src="../../img/logo-black.png" alt="logo" style="max-width: 60px">
+			<p class="text-muted">&copy; 2021 BBY12, Inc</p>
+		</footer>
+	</div>
 
-            <a href="/"
-                class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-                <img src="../../img/logo-black.png" alt="logo" style="max-width: 60px">
-            </a>
-
-            <ul class="nav col-md-4 justify-content-end">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About us</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Contact</a></li>
-            </ul>
-        </footer>
-    </div>
-
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Our own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
     <script>
         function logout() {
             console.log("logging out user");
@@ -244,8 +241,6 @@
             var currentdate = currenttime.getDate();
             var currentmonth = currenttime.getMonth() + 1;
 
-
-
             console.log(Length);
             db.collection(collection).get()
                 .then(snap => {
@@ -265,15 +260,15 @@
                         console.log(Duemonth);
                         console.log("currentday" + currentdate);
                         console.log("currentmonth" + currentmonth);
-                        if ((currentmonth == Duemonth) && (currentdate == DUEDATE + 1) && userset == set) {
+                        if ((currentmonth == Duemonth) && (currentdate == DUEDATE) && userset == set) {
                             console.log(currentdate);
 
                             console.log("alert");
-                            alert("Hi, you will have assignment(s)/quiz(zes) today!");
+                            alert("Hi, you will have assignment(s)/quiz(zes) tomorrow!");
                         }
-                        if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length) && (DUEDATE + 1 >= currentdate)) || (
+                        if ((((currentmonth == Duemonth) && (DUEDATE - currentdate <= Length) && (DUEDATE + 1 >= currentdate)) || (((
                             currentmonth - Duemonth == -1) && ((30 - currentdate + DUEDATE) <=
-                                Length)) && userset == set) {
+                                Length)) && userset == set))) {
                             //update title and text and image
                             newcard.querySelector('.card-title').innerHTML = ASSIGNNAME;
                             newcard.querySelector('.card-text1').innerHTML = "Assignment Type: " +
@@ -281,7 +276,7 @@
                             newcard.querySelector('.card-text2').innerHTML = "Course Number: " + PROID;
                             newcard.querySelector('.card-text3').innerHTML = "Due date: " + str1;
                             //     newcard.querySelector('.card-image').src = "buntzenlake" + collection + ".jpg";
-                            if ((currentmonth == Duemonth) && (currentdate == DUEDATE + 1) && userset ==
+                            if ((currentmonth == Duemonth) && (currentdate == DUEDATE) && userset ==
                                 set) {
                                 console.log(currentdate);
                                 newcard.querySelector('.card-text1').style.color = "red";
