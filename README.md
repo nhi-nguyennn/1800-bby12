@@ -61,7 +61,6 @@ It has the following subfolders and files:
  ┣ 📜logo-trans.jpg
  ┣ 📜ming.jpg
  ┗ 📜nhi.jpg
-
 📦pages                         ### Folder for pages
  ┣ 📂assignment
  ┃ ┣ 📜add-location.html
