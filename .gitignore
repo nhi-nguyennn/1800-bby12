@@ -6,3 +6,4 @@ firestore.indexes.json
 firestore.rules
 storage.rules
 404.html
+.vscode
