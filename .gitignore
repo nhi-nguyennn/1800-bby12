@@ -7,3 +7,4 @@ firestore.rules
 storage.rules
 404.html
 .vscode
+firebaseAPI.js
