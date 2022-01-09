@@ -29,7 +29,7 @@ providing a quick way share assignment information and showing notifications to 
 
 ## Features 
 - Utilizes Firebase’s database for 24/7 service.
-- Display shared assignments according to the time slot chosen by users.
+- Displays shared assignments according to the time slot chosen by users.
 - Displays personalized information.
 - Displays all set specific course info.
 - Displays a flexible calendar for users.
